@@ -17,21 +17,11 @@
 
 ## Abstract
 
-The lifespan of a glider, like any structure, is limited by its inherent susceptibility to fatigue damage. Similar to other structures, the repeated application of cyclic stress or load can cause the accumulation of damage, ultimately leading to delamination and the formation of cracks and dictating its useful operational duration.
+The lifespan of a glider is limited by its susceptibility to fatigue damage. Repeated cyclic loading causes progressive damage accumulation, ultimately limiting its useful operational duration. The life limit currently imposed by EASA places a significant financial burden on glider clubs and contributes to composite waste, as no recycling solutions currently exist for end-of-life gliders.
 
-To mitigate potential risks associated with fatigue on composite gliders, the EASA (European Union Aviation Safety Agency) accepts at least two methods to demonstrate compliance to life requirements. These acceptable means of compliance (AMC) are either a traditional fatigue analysis, and its corresponding lengthy and costly tests, or a simpler overload test of the glider, at the ultimate load level plus a certain margin. In either case, the applicant is currently granted a 12,000-hour life limit by the EASA. However, it is noteworthy that both means of compliance go beyond CS 22.627 fatigue strength regulation requirement.
+This paper presents a Structural Life Monitoring (SLM) method to justify extended fatigue life, without revisiting certified structural limits or reopening Type Certificate documents. The method compares the EASA-recognised Kossira & Reinke reference load spectrum against the actual load spectrum measured during real flights, using the same Kossira & Reinke counting method for both, ensuring a consistent and legitimate comparison. Damage accumulation is estimated using the Palmgren-Miner rule. As long as real cumulative damage remains below the certification damage limit, continued operation is justified. The ratio between theoretical and real damage accumulation directly quantifies the potential life extension.
 
-The 12,000-hour life limit imposes a financial burden on glider clubs, which are not able to afford more recent used or new gliders. From an environmental standpoint, there are currently no solutions to recycling composite gliders when they reach end of life. Any opportunity to extend glider life would be instrumental for the glider community and the environment. 
-
-This paper presents a method, consistent with modern Structural Health Monitoring solutions, using Structural Life Monitoring (SLM) to justify increased fatigue life. The method analyzes the differences between reference load spectrum, recognized by EASA for life prediction,  and the actual load spectrum, experienced during real flights. 
-
-Damages accumulate on the glider structure as function of the load factor cycle occurrences. Load spectra are representations of these occurrences expressed as function of load factors. Using the Miner-Palmgren rule, it is possible to estimate the cumulative damages of the corresponding spectra.  The damage accumulation, calculated with the reference load spectrum at 12,000 hours, sets the limit of damage that should not be exceeded. A glider can therefore operate until this limit is reached. If the rate of damage accumulation from real flights is lower than the theoretical rate of damage accumulation, the glider should be able to fly beyond 12,000 hours, until the certification damage limit is reached. It is important to note that with SLM, the structural limits validated during initial glider certification do not need to be revisited and increased, there is no requirement to reopen certification structural justification documents.
-
-This approach is consistent with EASA recommendations, which acknowledge multiple methods can be used for life justification due to fatigue, and is proposing SLM as an additional Means of Compliance (MoC).
-
-The reference load spectra are from Kossira & Reinke work. They have established multiple spectra based on real flights experience.
-The real flights load spectrum is computed with the same Kossira & Reinke counting method, using the accelerations measured on the glider. 
-Because the reference load factor spectrum shall cover the envelope of all possible glider usages, it is by design conservative compared to the real flight spectrum. Differences of orders of magnitude are expected between the damage calculations. For typical training and cross-country flying, this method can potentially  extend a glider's life by thousands of hours, significantly increasing  its value and reducing its environmental footprint.
+Preliminary results on an instrumented glider show a ratio of around 30, corresponding to potential life extensions of several thousand hours for typical training and cross-country operations. This is consistent with life assessments performed on similar composite structures in other industries. The method is conservative by design, maintains certified damage limits, and is compatible with EASA fatigue strength regulation requirements. A structured Concept of Operation and a certification pathway via EASA STC are proposed to support deployment.
 
 
 
@@ -55,14 +45,31 @@ This is becoming a costly dilemma for small glider clubs which may not be able t
 The carbon footprint of composite structures is also a growing environmental concern since glider manufacturers currently do not provide solutions for recycling their composite gliders.
 Extending glider life would extend their value and reduce the environmental impact.
 
-Traditionally, glider life prediction methods have relied on standardized theoretical load spectra, such as those developed by Kossira & Reinke [1]. The load spectra, derived from these seminal works [2], have become a key reference in defining load expectations for sailplane design and certification (EASA CS-22). These spectra were established using a compilation of a few hundred hours of real flights measurements performed on several gliders, flying in multiple conditions. The data and corresponding load factor occurrences have been extrapolated, using predefined operational profiles, to cover the envelope of all possible glider usages.
+Before getting into the methodology discussion, it is important to understand some key definitions: Service Life Limit, Reference Load Spectrum, Fatigue Damage, S/N Curves and Safety Factor.
 
-Recommendations by the European Union Aviation Safety Agency (EASA), as detailed in Certification Memorandum CM‑S‑006 [3], advocate for the use of these spectra for fatigue testing and structural analysis. In particular, the KoSMOS spectrum, which  is the most recent version, created to reduce testing time when actual laboratory fatigue tests are performed. 
+**Service Life Limit:** The Service Life Limit corresponds to the time a glider can fly, within the operational limits of its certified utilization category, without risking structural damage due to fatigue. Type Certificate holders may use different methods to demonstrate compliance with structural fatigue requirements, as accepted by the certification authorities. While these methods may vary, they all lead to an approved Service Life Limit. From an operational standpoint, it is this approved limit — not the method used to derive it — that governs how long a glider may remain in service. A typical glider Service Life Limit is 12,000 flight hours.
+
+**Utilization Category / Reference Load Spectrum:** Gliders are certified to operate under a defined category. The Reference Load Spectrum corresponds to the load factor occurrences a glider may experience within its category over its entire Service Life. Reference Load Spectra have been established for the main glider categories, and are recognized by the certification authorities. Most gliders are certified under the Utility category, and the corresponding Kossira and Reinke spectrum [2] is recognized by the certification authorities.
+
+**Fatigue Damage:** Aircraft structures are subject to variable loads throughout their service life, and repeated stress cycles can cause progressive structural deterioration — a phenomenon known as fatigue. Structural design aims to minimise stress concentrations, but fatigue damage accumulation must still be evaluated to ensure long-term structural integrity. One of the methods used in aerospace and accepted by EASA is the Palmgren-Miner rule, which combines load factor occurrences with the material's fatigue resistance to estimate cumulative damage. A Fatigue Damage value of 1 represents the theoretical failure threshold; designs are required to remain well below this limit over the intended service life.
+
+**S/N Curves (Wöhler Curves):** Material fatigue resistance is characterised by the relationship between the stress amplitude applied to a specimen and the number of cycles it can sustain before failure. This relationship is represented graphically as an S/N curve, also known as a Wöhler curve, where S denotes the stress amplitude and N the corresponding number of cycles to failure. S/N curves are derived from laboratory testing. In the context of the Palmgren-Miner rule, the S/N curve is the link between the load spectrum and damage estimation: for each stress level in the Reference Load Spectrum, the corresponding number of cycles to failure is read from the S/N curve, allowing the contribution of each load cycle to the total accumulated damage to be quantified.
+
+**Safety Factor:** Because uncertainties are inherent in the way structural fatigue and its associated limits are calculated, it is standard aerospace practice to apply an overall Safety Factor, even when margins are already included in individual calculations. The Safety Factor is applied to the Service Life Limit that is targeted. This means that fatigue calculations must be performed against a target equal to the intended Service Life Limit multiplied by the Safety Factor. Aerospace typically uses a Safety Factor of 3. For example, a glider with a Service Life Limit of 12,000 flight hours must demonstrate structural integrity up to 36,000 hours of equivalent fatigue.
+
+The load spectra, derived from Kossira & Reinke seminal work [2], have become a key reference in defining load expectations for sailplane design and certification (EASA CS-22). These spectra were established using a compilation of a few hundred hours of real flights measurements performed on several gliders, flying in multiple conditions. The data and corresponding load factor occurrences have been extrapolated, using predefined operational profiles, to cover the envelope of all possible glider usages.
+
+Recommendations by the European Union Aviation Safety Agency (EASA), as detailed in Certification Memorandum CM‑S‑006 [3], advocate for the use of these spectra for fatigue testing and structural analysis. In particular, the KoSMOS spectrum, which  is the most recent version, which includes omissions in the low load factor region, with no sensible effect on damage calculation, to reduce testing time when actual laboratory fatigue tests are performed. 
 
 EASA and other authorities have accepted several acceptable methods for compliance to fatigue strength regulation requirement (CS 22.627), including full scale fatigue testing based on accepted theoretical spectrum as well as static load tests with additional required safety margins [4] (5) [6].
 
-The granted 12,000-hour life limit, using either previously described solutions, sets the level of maximum acceptable damage accumulation. Attempts have been made in the past, using modern modeling tools and recently available material fatigue data, to quantify and justify that the composite structures  have much lower damage accumulation rate compared to what was expected during initial certification [7]. However, because it is impractical to re-open 50 years old certification documents, the proposed solution is using structural Health Monitoring principles, to demonstrate that there are opportunities to justify operations beyond 12,000 hours, without exceeding the maximum acceptable damage accumulation set during initial certification, eliminating the need to reopen Type Certificate (TC) documents.
-The real damage accumulation is computed using inflight acceleration measurements, with the Miner-Palmgren rule. The number of cycles to failure, required for damage calculation, is computed using the reference cycle, the composite material properties and the certification damage limit. The principle is shown on Figure 1.
+The granted service life limit, using either previously described solutions, sets the level of maximum acceptable damage accumulation. When using the Palmgren-Miner rule and a typical safety factor of 3, this means that the acceptable damage limit should not exceed 1/3.
+Attempts have been made in the past, using modern modeling tools and recently available material fatigue data, to quantify and justify that the composite structures  have much lower damage accumulation rate compared to what was expected during initial certification [7]. However, because it is impractical to re-open old certification documents.
+The solution proposed in this paper uses Structural Health Monitoring principles, to demonstrate that there are opportunities to justify operations up beyond the original service life limit, without exceeding the maximum acceptable damage accumulation set during initial certification, eliminating the need to reopen Type Certificate (TC) documents.
+
+This concept is already in use in the military aviation to maximize service time of airplanes which have very dissimilar missions. Individual Aircraft Tracking (IAT), using onboard acceleration measurement, Miner-Palmgren damage accumulation, and comparison against a reference spectrum, has been validated on numerous defense aircraft types over more than 50 years.
+
+For gliders certified under CS-22, the goal is to compute the real damage accumulation  using inflight acceleration measurements. Damage accumulation can be computed using Miner-Palmgren rule,  number of cycles to failure, reference cycle, and composite material properties.  As long as the damage accumulation stays below the certification damage limit, the operation of the glider can continue. The principle is shown on Figure 1.
 
 ![](C:\Users\JLD\Downloads\12000\life extesion graphic v1.jpg)
 
@@ -76,7 +83,7 @@ The real damage accumulation is computed using inflight acceleration measurement
 
 #### 2.1.1 Introduction of life limit in glider industry
 
-Until the introduction of composite materials, gliders were manufactured using wood, fabric and aluminum. The fatigue behavior of these materials is well understood, only requiring standard practice to avoid any concentration of stress above certification limits. At the time of certification of the older gliders, it is assumed that no explicit fatigue life analysis or testing was required.
+Until the introduction of composite materials, gliders were manufactured using wood, fabric and aluminum. The fatigue behavior of these materials is well understood, only requiring standard practice to avoid any concentration of stress above certification limits. At the time of certification of the older gliders, no explicit fatigue life analysis or testing was required.
 The first composite gliders were manufactured in the late 1950s: fs 24 Phönix first flight was in 1957, followed by Hütter H 30 GFK in 1962 (which led to the Glasflügel Libelle) and Akaflieg Darmstadt D-36 in 1964. The D-36 led to the ASW 12 (Waibel / Schleicher), the Cirrus (Holighaus / Schempp-Hirth) and LS1 (Lemke / LS) sailplanes which were then built in series. By the 1970s, composite materials became the standard in high-performance glider manufacturing, and all modern gliders today are made with advanced composite structures.
 
 The glider community has been a pioneer in the use of composite materials, but industry's relative inexperience and limited understanding of fatigue behavior, led some certification authorities to introduce a life limit. This 12,000-hour limit, which was set by LBA (Luftfahrt-Bundesamt), remains the standard life limit today under EASA.
@@ -86,12 +93,12 @@ It should be noted that, even if authorities like LBA imposed a relatively short
 
 Today, the EASA has maintained the 12,000-hour life limit, although the CS 22.627 (Fatigue strength) only requires that "structure must be designed, as far as practicable, to avoid points of stress concentration where variable stresses above the fatigue limit are likely to occur in normal service".
 
-In the glider industry, there have been few full-scale fatigue testing performed. In most cases, the glider manufacturers have been complying with the requirement using the EASA accepted static overload test.
-However, there has been one particularly interesting full scale fatigue test performed in the 1990s, in Australia, on a Janus B wing [9]. The glider was not new and one wing had substantial repairs. Some defects were not repaired on purpose and some defects were created to simulate typical incidents (such as wing damage during out-landing). The conclusion was clear confirming that there were no significant damage accumulation on the wing without repair and, only the non-repaired  sections had substantial growth of  minor unrepaired damages. However, the propagation rate of delamination was slow and could be easily detected with the 1000-hour inspection interval.
+In the glider industry, few full-scale fatigue testing have been performed. In most cases, the glider manufacturers have been complying with the requirement using the EASA accepted static overload test.
+However, there has been one particularly interesting full scale fatigue test performed in the 1990s, in Australia, on a Janus B wing [9]. The glider was not new and one wing had substantial repairs. Some defects were intentionally left unrepaired and some defects were created to simulate typical incidents (such as wing damage during out-landing). The conclusion was clear confirming that there was no significant damage accumulation on the wing without repair and, only the non-repaired  sections had substantial growth of  minor unrepaired damage. However, the propagation rate of delamination was slow and could be easily detected during the aging/fatigue inspection, which is mandatory at 6000, 9000, 10000 & 11000 hours.
 
-The experience gained in aerospace industry, as well as other industries like wind turbines, from inspection of aging composite structures, improved fiber characterization and better modeling, has validated the excellent fatigue behavior of composite airframes. This confirms that the historical 12,000-hour life limit imposed to gliders is extremely conservative as already demonstrated in previous analysis "Numerical Comparison of Glider Load Spectra" [7].
+The experience gained in aerospace industry, as well as other industries like wind turbines, from inspection of aging composite structures, improved fiber characterization and better modeling, has validated the excellent fatigue behavior of composite airframes. This confirms that the historical 12,000-hour life limit imposed to gliders is extremely conservative as already demonstrated in a previous analysis "Numerical Comparison of Glider Load Spectra" [7].
 
-Even if recent analysis have identified structural margin opportunities, it is not practical to reopen structure analysis for gliders certified 30 or more years ago. However, thanks to better understanding of glider operational usage and the corresponding composite materials damage accumulation due to fatigue, our proposed method provides a solution to extend the life of gliders, without changing the certification damage accumulation limit associated to 12,000 hours.
+Even if recent analysis have identified structural margin opportunities, it is not practical to reopen structure analysis for gliders certified 30 or more years ago. However, thanks to better understanding of glider operational usage and the corresponding composite materials damage accumulation due to fatigue, our proposed method provides a solution to extend the life of gliders, without changing the certification damage accumulation limit associated to the safe life limit (12,000 hours).
 
 
 
@@ -101,14 +108,16 @@ The load spectra developed by Kossira & Reinke are foundational in sailplane des
 To establish their load spectra, they instrumented gliders which were flown in different conditions, with the goal of being representative of the envelope of all possible flight usages. Because they could only fly for a limited time, it was necessary to scale the data to be representative of 6,000 or 12,000 flight hours required for certification. They used an extrapolation method which not only scales the occurrences as function of time, but also increases the maximum and minimum load cycles values. While this extrapolation method is understandable, from a statistical point of view to account for the lack of variability due to reduced flight time, it might be a source of over-estimation.
 
 The counting method used by Kossira & Reinke is very similar to the "peak and valley" solution [10], with the addition of a simple filter to avoid counting minor load factor variations, and the eventual use of Markov matrix transition to count occurrences. These occurrences specify the expected number of cycles at various stress levels over a defined operational period, and form the basis for fatigue life predictions. However, we should understand that these spectra have been developed to cover the envelope of all possible operations and have built-in conservatism compared to most typical operations.
-Because the KoSMOS spectra (Kollektiv für Segelflugzeuge, Motorflugzeuge und Motor-Segler, i.e. load collective for sailplanes, aeroplanes and powered gliders) and the associated Markov matrix are not readily available in the public domain,  the initial study has been performed using the original Kossira & Reinke spectra from their 1982 publication [2]. This choice could be revisited while experimenting with additional gliders, to make the life extension estimations  more in line with the certification hypothesis.
+The KoSMOS spectrum (Kollektiv für Segelflugzeuge, Motorflugzeuge und Motor-Segler, i.e. load collective for sailplanes, aeroplanes and powered gliders) is based on the original data from Kossira & Reinke with omissions of the low level stress variations. The goal being to significantly reduce test time when the spectrum is used for ground tests. Because our goal is to eventually compare the reference spectrum to the actual spectrum flown by a given glider, it is more suitable to use the original Kossira & Reinke spectra from their 1982 publication [2], which don't have theses omissions.
 
-Figure 2 is a representation of the Kossira & Reinke flight only spectrum normalized at 6000 flight hours. This spectrum only includes flight phases without any aerobatics, making it conservative (fewer occurrences at reduced load factors)
+Since most gliders are certified under the Utility category, which permits limited aerobatics, the appropriate reference for comparison against real flight data is the Kossira & Reinke spectrum for the Utility category. Figure 2 is a representation of this spectrum, normalized at 6,000 flight hours.
+
+
 
 ![](C:\Users\JLD\Downloads\12000\Kossira spectra flight only 6000FH v1.jpg)
 
-​				Figure 2: Kossira & Reinke spectrum normalized for 6000 Flight Hours [2]
-​							 (x axis: occurrences /  y axis: load factor)
+​			*Figure 2: Kossira & Reinke spectrum for the Utility category, normalized for 6,000 Flight Hours [2]*
+​                                                   *(x axis: occurrences / y axis: load factor)*
 
 Kossira & Reinke’s subsequent work, *“Determination of load spectra and their application for keeping the operational life proof of sporting airplanes”* [2], extends these concepts to operational life assessment. The occurrence distribution, in this framework, enables the calculation of cumulative damage via cycle counts.
 
@@ -128,7 +137,7 @@ To establish these spectra, gliders have been instrumented to record stress on w
 Using limited digital technology available at that time, the acquisition and processing were relatively simple: 
 
 1. Converting the wing loading, calculated with the spar bending moments divided by a reference bending moment, into digital classes of 2<sup>10</sup> and  2<sup>5</sup> precision, 
-2. simple filtering to reduce the effect of small load factor variations,
+2. simple filtering to reduce the effect of small load factor variations (noise),
 3. identifying maxima and minima in the smaller  2<sup>5</sup> class (maxima and minima are also called peaks & valleys), 
 4. filling a Markov transition matrix using "from stress/load factor"  to "to stress/load factor" transitions which correspond to transitions from minimum (valley) to maximum (peak) as well as  maximum (peak) to minimum (valley),
 5. transforming the Markov matrix to count exceedances above and below the average load factor level,
@@ -238,7 +247,7 @@ where $n_i$ is the number of cycles at a specific stress level, and $N_i$ is the
 In sailplane fatigue context, damage accumulation $$D$$ corresponds to the sum of individual damages computed at each considered load factor level (stress level), either in operation (real load spectrum) or using theoretical spectrum. Each individual damage, at a given stress level, is the ratio between the occurrences applied to the structure at that level ($$n_i$$) and the number of occurrences required to fail the structure at that same stress level ($$N_i$$). 
 
 It is therefore possible to estimate damage accumulation from a given spectrum to ensure the value stays below a certain limit.
-When multiple spectra are available,  and the respective damage accumulations are estimated over the same exposure time, it becomes possible to compare to estimate life extension.
+When multiple spectra are available,  and the respective damage accumulations are estimated over the same exposure time, it becomes possible to directly compare them and eventually estimate life extension when real flight spectrum is less severe than the reference theoretical spectrum.
 
 
 
@@ -289,7 +298,7 @@ C\; = \sigma'_f\;\Bigl(\frac{2}{\varepsilon'_F}\Bigr)^{b}
 $$
 It expresses the stress‐amplitude $σ_a$ required to produce failure in $N$ cycles as a power‑law function of $N$.
 
-This model is only valid for the high cycle fatigue of the $$S/N$$ curve, and is not an issue for this application as, by design margins, a glider does not operate into the low cycle fatigue and, at the other end of the curve, it is known that very low amplitude stress occurrences do not contribute to fatigue and can be ignored.
+This model is only valid for the high cycle fatigue of the $$S/N$$ curve, and is not an issue for this application as, by design margins, a glider does not operate into the low cycle fatigue.  At the other end of the curve, Basquin model is very conservative since it does not consider the asymptotic part of the $$S/N$$ curve in the very low stress variations region.
 
 
 
@@ -383,10 +392,29 @@ These $$N_i$$ values are only functions of the spectrum and the slope of the $$S
 
 #### 3.1.1 Acquisition of load cycle using accelerometer and strain gauges
 
-To establish their spectra, Kossira & Reinke have been initially using strain gauges, installed on the spar, at the wing root of the glider. Their goal was to measure the bending moment $$M_{br}$$, at the wing root . To calibrate their measurement system, they loaded the wing on the ground with different weight to be representative of the lift range. Then they flew in calm air with a stable trajectory (vertical acceleration ~ 1g) to establish the reference bending moment $$M_{br1g}$$. The bending moments measured during the flights were then divided  by the reference bending moment, resulting in the ratio \(\frac{M_{br}}{M_{br1g}}\), which represents the wing loading in flight.
-When the glider is mainly subject to aerodynamic forces , this $$\frac{M_{br}}{M_{br1g}}$$ ratio also represents the vertical load factor  $$N_z$$ , which can also be measured by accelerometers.
-When the glider is subject to other forces, the relation $$\frac{M_{br}}{M_{br1g}}$$ = $$N_z$$ is not always true. However, if these phases can be identified and processed independently from the flight phases, flight physics models could be used to shift the accelerometer reading in order to be representative of the specific spar flexion/strain during these phases.
-For example, there would be value in studying the ground rolling phases, when the wing lift is nonexistent as well as the winch takeoffs when there is significant wing lift or flexion. Until such studies are performed, it is always possible to use a “fixed fee”, added to the real fatigue spectrum, based on the same hypothesis Kossira & Reinke have used for ground maneuvers and winch launching.  As an illustration of possible simple models, in the specific case of ground rolls, the accelerometer reading could be shifted to represent the specific spar flexion/strain mean value when wing lift is non-existent (negative shift).
+**From bending moment to load factor — establishing proportionality**
+
+To establish their spectra, Kossira & Reinke originally instrumented gliders with strain gauges on the wing spar at the root, measuring the spar bending moment $M_{br} $. A reference bending moment $M_{br1g} $ was established by flying in calm air with a stable trajectory (vertical acceleration ≈ 1g). Bending moments measured during flight were then divided by this reference value, yielding the normalised ratio $\frac{M_{br}}{M_{br1g}} $, which represents the wing loading in flight.
+
+When the glider is primarily subject to aerodynamic forces, this ratio is directly proportional to the vertical load factor $N_z $, which can be measured more practically using an accelerometer. This proportionality is the foundation of the SLM approach: if stress at any critical structural location is proportional to the load factor, then measuring load factor is sufficient to estimate fatigue damage accumulation.
+
+**Validity of the proportionality within the certified flight envelope**
+
+One may argue that the relationship between load factor and local stress is not unique — that the maximum stress could occur at different locations on the structure depending on the aerodynamic and mass distribution along the wing, and that the coefficient of proportionality between stress and load factor is therefore unknown.
+
+This objection is valid in general, but does not apply when the glider is operated within its certified flight envelope. By design, the manufacturer has ensured that, for any combination of speed, flap and airbrake configuration, and mass loading within the authorized range — covering fuselage weight (pilots) and wing mass (including water ballast) — the resulting stress at all critical structural locations remains below the maximum allowable. The structural design therefore implicitly bounds the stress at every critical point as a function of load factor, within the operational envelope.
+
+This is further reinforced by the use of load factor limits in glider operational documentation. The maximum and minimum load factor limits published in the Flight Manual are precisely the operational expression of this design constraint: they are the values beyond which structural stress would exceed acceptable levels. As long as the glider is flown within these limits and within the authorized configuration and mass envelope, load factor is a valid and sufficient proxy for structural stress.
+
+Furthermore, it is important to note that the absolute value of the proportionality coefficient between load factor and local stress is not required. The Palmgren-Miner damage accumulation relies on stress amplitudes — that is, the variation of stress between successive peaks and valleys — rather than absolute stress values. Since stress is proportional to load factor within the authorized flight envelope, stress amplitude is equally proportional to load factor amplitude. The proportionality coefficient therefore cancels out when computing the damage ratio between the reference and real spectra. What matters is not the magnitude of the coefficient, nor where on the structure the maximum stress occurs, but simply that the glider is operated within its authorized flight envelope, ensuring that load factor variations remain a consistent and valid representation of stress variations throughout the structure.
+
+**Accelerometers as a practical substitute for strain gauges**
+
+This equivalence makes accelerometer-based recording a cost-effective and practical substitute for strain gauges in the context of SLM. The accelerometer should be located as close as possible to the wing spar centreline to minimise contamination from centripetal accelerations during attitude changes.
+
+**Non-flight phases**
+
+The proportionality between load factor and spar stress holds during normal flight phases. During ground rolls or winch launches, significant non-aerodynamic forces are present and the relationship no longer holds directly. Until dedicated flight physics models are validated for these phases, a conservative fixed contribution to the fatigue spectrum can be added, based on the same assumptions Kossira & Reinke applied for ground manoeuvres and winch launches. The approach adopted for the initial experimentation is described in section 3.1.2.
 
 #### 3.1.2 Data acquisition for experimentation
 
@@ -676,63 +704,79 @@ It should also be noted that, contrary to the composite structures, these metall
 
 Using this novel Structural Life Monitoring method, it is possible to tailor a given glider life, beyond the initially certified 12,000-hour limit, by function of its specific usage. This life limit extension is achieved while maintaining the level of damage accumulation accepted during certification.
 EASA has already accepted several methods to comply with fatigue strength regulation requirements. This legitimizes SLM as an additional alternative solution, for aging gliders. 
-EASA Certification Memorandum CM‑S‑006 endorses the use of Kossira & Reinke spectrum which have been designed to cover all types of usages, including some operations which are rarely flown by most gliders. While the proposed solution is consistent with these EASA reference load spectra and maintains significant calculation margins ( use of conservative Spectrum and Basquin $$b$$ parameter )  we still anticipate a large difference between the measured and the theoretical damage accumulations. This  has been confirmed during initial tests on several instrumented gliders. Still, the exact extension granted by the proposed SLM method will account for actual glider use, on a serial number basis.
+EASA Certification Memorandum CM‑S‑006 endorses the use of Kossira & Reinke spectrum which have been designed to cover all types of usages, including some operations which are rarely flown by most gliders. While the proposed solution is consistent with these EASA reference load spectra and maintains significant calculation margins, we still anticipate a large difference between the measured and the theoretical damage accumulations. This  has been confirmed during initial tests on several instrumented gliders. Still, the exact extension granted by the proposed SLM method will account for actual glider use, on a serial number basis.
 
 As the life increase is proportional to the time the real spectrum is observed, it is advisable to instrument gliders as soon as possible and before they reach 12,000 hours, to be able to gain significant life extension.
 Early life instrumentation might not be necessary when solely considering aging glider life extension, but would provide valuable data and statistics, in the understanding of glider usage. 
 
-#### 4.3.3  Concept of Operation proposals
+#### 4.3.3  Concept of Operation and Deployment Proposals
 
-##### 4.3.3.1 Project proposal
+##### 4.3.3.1 Concept of Operation Proposal
 
-The gliders should enter the project with a valid CoA before having reached 12,000 hours.
-Each glider should have a person designated to supervise the operation of this glider.
-The acceleration recording equipment will be installed using CS-CSTAN 104b, which should appear on the logbook to ensure the glider time is known when the recorder has been installed.
-On a regular basis, e.g. every week when there is activity, the recorder files and the logbook of the glider will be transmitted to the project leader who will process them. 
-If some of the gliders are at risk of reaching the 12,000-hour limit during the experimentation, a third party (e.g. FFVP/APDOA) will apply for a Permit to Fly (PtF) or limited Supplemental Type Certificate (STC) specific to the serial number (s/n), to allow continuation of operation. This is with the assumption that the damage accumulation is providing sufficient margin. In the case of PtF, it should allow all required types of operations to continue experimentation.
-The analysis tools and algorithms will be matured and distributed openly.
-Reports, including flights evaluations as well as technical points required to deploy the solution, will be sent to the project participants at least on a quarterly basis.
+The concept of operation could be divided in 3 main phases:
 
-The main deliverables of the project should be:
+###### Phase 1 — Instrumentation and Data Collection (below Type Certificate safe life limit)
 
-- validation of the SLM damage calculation estimations
-- selection of the reference spectrum
-- selection of the Basquin composite material properties
-- modeling of the special flight phases, when non-aerodynamic forces are applied to the glider
-- recording equipment minimum performance requirements, including maintenance/performance validation during operation
-- algorithms, tools and logistic, capable of processing recorders file to provide the data necessary to decide if glider's damage accumulation is within acceptable limit, and life limit extension estimation compatible with next scheduled visit.
-- definition of the fatigue recurring inspections (content/timing) required to continue operations. This could be based on the existing recurring inspections, which scope could be extended based on manufacturer's experience.
-- Alternative Means of Compliance (AltMOC) and associated concept of operations (CONOPS) approved by EASA
+This phase covers the period during which the SLM recorder is installed, and the glider has not yet reached its safe life limit. It includes:
+\-    Sensor installation in accordance with CS-STAN / Form 123
+\-    Annual 6-face calibration during the annual inspection
+\-    Compliance with Part ML; installation and annual calibration results recorded in the aircraft logbook
+\-    Missing data policy: if a flight occurs without valid SLM data (sensor fault, data corruption, missed calibration), damage for that flight is substituted at the theoretical Kossira & Reinke damage rate for the flight duration
+\-    Flight data uploaded to the central web repository; post-processing tools applied to guarantee data integrity
 
-##### 4.3.3.2 Deployment proposal
+###### Phase 2 — Fatigue Evaluation when reaching Type Certificate safe life limit
 
-Once EASA has formalized a path to use SLM as a valid Means of Compliance, thanks to the project deliverables, the TC owners or third parties will be able to  propose solutions with minimal effort.
-For TC owners, they will be able to develop modifications and Service Bulletins (SB) to install the required equipment.
-For third parties, they will be able to develop STC, similar to the STC developed within the project.
-In both cases, they or a third party, will have to provide the framework required to allow the glider owners to report their activity and, in return, get the authorization to perform the recurring inspections and continue operation.
-TC or STC owners will have open access to the project deliverables, algorithms and software solutions if they elect to develop their own framework or use the services of a third party.
-Typical CONOPS for deployment could be:
+This phase includes:
+\-    a dedicated fatigue inspection of the aircraft condition (equivalent in scope to the existing recuring 1000 hours inspections).
+\-    an assessment of the real cumulative damage to possibly permit operation up to the originally certified fatigue damage limit.
+\-    inspection beyond the composite structure, as well as an overall assessment of glider’s condition (incidents/repairs). 
 
-- Application of SB or STC, while glider has not reached the initial 12,000-hour limit. These SB or STC would describe in detail the process required to maintain airworthiness. The following list is an example of what the method could be.
-- Transmission on a regular basis, of glider logbook and recorder files to the party in charge of validating SLM data.
-- At every maintenance activity, include the SLM reports provided by the party in charge, to the glider maintenance records (e.g. Airworthiness Review Certificate (ARC), recurring 1000-hour inspection, etc.). These reports would include the calculation of the remaining damage potential as well as an estimation of the life potential based on current usage.
-- The sensor performance is verified at a regular interval, during one of the scheduled inspections (e.g. recurring fatigue inspection, annual inspection, etc.).
-- When the glider reaches the initial 12,000-hour limit,  all previous activities required to maintain CoA continue.
-- A new life inspection visit is added to the maintenance schedule, with a first occurrence at 12000 hours. Its schedule is based on the SLM report and could not exceed the calendar limit of the ARC. The goal of this visit is to ensure the remaining damage potential is not exhausted before next scheduled visit.
-- The updated recurring fatigue inspection program is also included in the glider maintenance schedule.
-- This process continues until the glider has exhausted its remaining damage potential, and is retired from service.
+######  Phase 3 — Operation Beyond Type Certificate safe life limit
+
+ This phase is a continuation of Phase 1 monitoring operations, with the following additional provisions:
+\-    Go / No-Go decision at each Airworthiness Review Certificate (ARC) renewal, based on the SLM fatigue status report
+\-    Go criterion: cumulative D_total < 1/3, AND the current damage rate (D per flight hour) confirms that D = 1/3 will not be reached before the next scheduled inspection
+\-    Recurring structural inspection continuing from Phase 2, with a maximum interval of 1,000 hours or 5 years, whichever is sooner
+\-    This process continues until the aircraft has exhausted its remaining damage potential and is retired from service
+
+
+
+##### 4.3.3.2 Validation of the concept and Deployment proposal
+
+The SLM solution has never been implemented on gliders and there is no Interpretative Material (IM) or Acceptable Means of Compliance (AMC) to support CS-22 certification.
+One important step toward SLM approval will be the publication of a Certification Review Item, which shall support the establishment of IM or AMC.
+The CRI shall cover acceptable :
+ \- fatigue/damage calculation methods
+ \- reference load spectrum and composite material parameter
+ \- onboard recording solution
+ \- post processing solution
+ \- CONOPS and Instructions for Continued Airworthiness (including impact on AFM/AMM/AMP)
+ \- limits of proposed methodology  and SLM applicability
+
+An EASA STC could be used to develop the required certification justification documents.
+The STC could be applicable to a small group of gliders in experimentation. They would provide flight data as well as validate the CONOPS.
+The STC would produce the following documents which will be required to get the SLM approved:
+
+- Certification Program
+- Certification Review Item
+- Methodology Report
+- Instructions for Continued Airworthiness
+- Installation, Operating and Maintenance Manual
+
+When STC would be approved, the gliders in experimentation would be allowed to continue their operation using SLM.
+The STC documents could be made available to the interested Type Certificate holders. They could develop modifications and Service Bulletin to permit SLM operation on selected glider types.
 
 
 
 ## 5. Conclusion
 
-This study outlines a methodology for extending the operational life of gliders using Structural Life Monitoring.
-Measurement of flight accelerations, processed with the Miner-Palmgren rule, allows computation of damage accumulation. As long as the real damage accumulation does not exceed the end of life theoretical damage accumulation defined during certification, operation could continue. Additionally, the ratio  between the reference and real damage could be used to predict life extension, beyond 12,000 hours.
-The initial results show that, even when selecting conservative calculation methods and material fatigue parameters, damage accumulation from actual flights is orders of magnitudes lower than damage accumulation predicted by the theoretical models.
-The corresponding  significant life increase is in line with life limits experienced on similar composite structures  from other industries, like wind turbines. It is also in line with the assessment performed by TRAFI (Finland) in 2015, setting the PIK20D glider life to 65,000-hour. 
-However, it should be clear that gentler flying results in greater life extension.
+This paper presents a methodology for extending the operational life of composite gliders using Structural Life Monitoring. By measuring in-flight accelerations and processing them with the Palmgren-Miner rule, it is possible to compute a glider's real cumulative fatigue damage. Crucially, both the reference and real flight spectra are processed using the same Kossira & Reinke counting method, ensuring a consistent and legitimate comparison. As long as real cumulative damage does not exceed the certification damage limit established during type certification, continued operation is justified — without any requirement to reopen Type Certificate documents or revise certified structural limits.
 
-This approach maintains **Safety level** (method is conservative, maintains certified limits), offers **Economic benefits** (extends asset life) and **Environmental benefits**  (reduces waste), and is compatible with EASA fatigue strength regulation requirement and means of compliance. It is however advisable to first experiment this approach on a selected fleet of instrumented gliders, which could be monitored closely to confirm the initial results. The solution could then be finalized and, after approval by EASA as an acceptable alternative means of compliance, deployed on any aging glider, using Supplemental Type Certificates or Service Bulletins.
+Preliminary results show that, even when applying conservative calculation methods and worst-case composite material fatigue parameters, damage accumulation from actual flights is orders of magnitude lower than damage accumulation predicted by the theoretical reference spectrum. A damage ratio of around 30 has been observed on an instrumented glider, corresponding to potential life extensions of several thousand hours for typical training and cross-country operations. Interestingly, the same approach applied to metallic components, using aluminium Basquin parameters, also yields significant life extension, legitimising the continuation of recurring structural inspections beyond the current life limit. It should however be noted that life extension is directly dependent on how the glider is flown — gentler flying results in proportionally greater extension.
+
+These findings are consistent with life assessments performed on similar composite structures in other industries, and with the 65,000-hour life assessment performed by TRAFI for the PIK-20D in 2015.
+
+The proposed method is conservative by design, maintains certified damage limits, and is compatible with EASA fatigue strength regulation requirements, offering significant safety, economic and environmental benefits. A structured three-phase Concept of Operation — covering instrumentation, fatigue evaluation at the certified life limit, and monitored operation beyond it — has been outlined as a practical deployment framework. It is advisable to first validate this approach on a selected fleet of instrumented gliders. The findings could then support the establishment of an EASA Certification Review Item, leading to an Acceptable Means of Compliance for SLM under CS-22, and ultimately deployed on aging gliders through Supplemental Type Certificates or manufacturer Service Bulletins.
 
 .
 
