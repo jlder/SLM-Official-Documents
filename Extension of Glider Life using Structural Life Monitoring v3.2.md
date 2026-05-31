@@ -72,7 +72,7 @@ This concept is already in use in military aviation to maximize service time of 
 
 For gliders certified under CS-22, the goal is to compute the real damage accumulation  using in-flight acceleration measurements. Damage accumulation can be computed using the Palmgren-Miner rule,  the number of cycles to failure, the reference load spectrum, and composite material properties.  As long as the damage accumulation stays below the certification damage limit, the operation of the glider can continue. The principle is shown in Figure 1.
 
-![](C:\Users\JLD\Downloads\12000\life extesion graphic v1.jpg)
+![](.\life extesion graphic v1.jpg )
 
 ​						Figure 1: Life extension principle
 
@@ -115,7 +115,7 @@ Kossira & Reinke published multiple spectra corresponding to different utilizati
 
 
 
-![](C:\Users\JLD\Downloads\12000\Kossira spectra flight only 6000FH v1.jpg)
+<img src=".\Kossira spectra flight only 6000FH v1.jpg" style="zoom:80%;" />
 
 ​			*Figure 2: Kossira & Reinke flight-only spectrum normalized for 6,000 Flight Hours [2]*
 ​                                                   *(x axis: occurrences / y axis: load factor)*
@@ -160,7 +160,7 @@ This final step provides the representation in Figure 2 and Figure 3 which are c
 The sensor's signal, representing the glider body vertical axis load factor, is converted to digital values using  2<sup>10</sup> precision (signal is quantified into 1024 classes). With a typical load factor range of -4g to +6g, the difference between two adjacent classes is small (approximately 0.01g). Analyzing the transitions using this accuracy results in a high number of small transitions, which have no real value for fatigue and life analysis.
 The solution proposed by Kossira & Reinke is to use a sub class using 2<sup>5</sup> precision ( signal quantified in 32 classes). With such resolution, the difference between two adjacent 32-class values is approximately 0.32g which is more representative for fatigue and life analysis.
 
-<img src="C:\Users\JLD\Downloads\12000\class_32_1_to_32_-4_to_6.jpg" style="zoom:80%;" />
+<img src=".\class_32_1_to_32_-4_to_6.jpg" style="zoom:80%;" />
 
 ​											Table 1: 32-Class definition
 
@@ -170,7 +170,7 @@ The solution proposed by Kossira & Reinke is to use a sub class using 2<sup>5</s
 
 Using data in the 32-class format is simple but has a negative effect since it amplifies small signal variations when these variations occur at the limit of the 32-class transitions. For example, with an input range of -4g to +6g,  if the value of the input signal is 0.95g, the 1024-class value is 507 and the 32-class value is 16. If the signal increases slightly by e.g. 0.08g, the 1024-class value becomes 516 and the 32-class value 17. If the input signal oscillates between these values, the 32-class values also oscillate between 16 and 17, which means that a small 0.08g input signal variation is turned into a large 0.32g variation when converted to 32-class. To avoid these undesired 32-class variations induced by small input signal variations, Kossira & Reinke introduced a simple filtering solution by only taking into account a new sample, if the difference between this new sample and the last recorded sample exceeds a threshold DX, in the 1024-class.  In their experimentations, Kossira & Reinke have used DX=10 [11], which means that the difference between previous sample and current sample has to be at least ~0.1g , for current sample to be processed. Figure 4 provides an illustration of the filtering/hysteresis proposed by Kossira & Reinke [2].
 
-![](C:\Users\JLD\Downloads\12000\class 1024 32  filter v1.jpg)
+![](.\class 1024 32  filter v1.jpg)
 
 ​									Figure 4: Kossira & Reinke filtering solution
 
@@ -206,7 +206,7 @@ Then compute how many transitions went through a given load factor above and bel
 
 2. for each of the load factor cells below the mean value and below diagonal, compute the sum of all the occurrences at and below the considered cell (Figure 7 green/light gray example).
 
-   ​									![](.\Markov1to2.jpg)
+   ​									<img src=".\Markov1to2.jpg" style="zoom: 67%;" />
 
 ​					Figure 7: Calculation of the number of transitions through a given cell
 ​						( x axis: "**from**" level transition /  y axis: "**to**" level transition )
@@ -223,7 +223,7 @@ For a given load factor level, sum all the occurrences to obtain the spectrum ta
 
 
 
-![](C:\Users\JLD\Downloads\12000\Janus 6000 FH.jpg)
+![](.\Janus 6000 FH.jpg)
 
 ​					Figure 9: Example of load factor spectrum from a glider real flights in green/black 
 ​	with Kossira & Reinke theoretical flight-only (no aerobatics) spectrum in red/gray normalized at 6,000 flight hours
@@ -269,7 +269,7 @@ An S-N curve provides a representation of the relationship between the stress am
 
 For fatigue analysis and demonstrations, there is a direct correlation between stress cycles and load factor cycles due to the stress considered: structure flexion under load factor. 
 
-<img src="C:\Users\JLD\Downloads\12000\SN_curve simple v1.png" style="zoom:67%;" />
+<img src=".\SN_curve simple v1.png" style="zoom:67%;" />
 
 ​											Figure 10: Typical Wöhler curve
 
@@ -306,12 +306,12 @@ This model is only valid for the high cycle fatigue of the $$S/N$$ curve, and is
 #### 2.6.3 End of life damage accumulation estimation
 
 By design, a glider has a finite fatigue life potential. While the glider is operated, this potential is consumed by the occurrence of the load variations (cycles).
-The theoretical load factor spectrum and the real load factor spectrum are two examples of how the occurrences are distributed as a function of the load factor as well as their frequency.
+The reference load factor spectrum and the real load factor spectrum are two examples of how the occurrences are distributed as a function of the load factor as well as their frequency.
 When the potential is consumed, the component(s) subject to fatigue could fail. When the Palmgren-Miner rule is used as a way to estimate damage accumulation, this means the corresponding value  $$D$$ has reached $$1$$.
 
 Certification requirements and common practice incorporate a safety factor of 3, so that if a life of e.g., 12,000 hours is targeted, the calculations and validations should be performed for a duration of 36,000 hours.
 
-Therefore, when using Kossira & Reinke as the reference theoretical spectrum, and Palmgren-Miner as a way to estimate damage, the damage accumulation is:
+Therefore, when using Kossira & Reinke as the reference spectrum, and Palmgren-Miner as a way to estimate damage, the damage accumulation is:
 $$
 D_{theoretical,36000}\;=\;\sum_i \frac{n_{i,theoretical,36000}}{N_i}\; = 1
 $$
@@ -329,14 +329,14 @@ This damage value corresponds to 12,000-hour life potential limit for damage acc
 
 
 
-#### 2.6.4 Number of cycles to failure $${N_i}$$ from theoretical spectrum and material properties
+#### 2.6.4 Number of cycles to failure $${N_i}$$ from reference spectrum and material properties
 
 Local stresses can be considered linear with the load factor around the average load factor:
 $$
 σ_{a,i} \;\propto\;|LF_i - {LF_\text{average}}\bigr|
 $$
 with  $${LF_i}$$  the load factor and $${LF_\text{average}}$$  the average load factor during the exposed time.
-Using the Basquin model, with a constant $$C'$$ which can be derived from the certification condition using the theoretical spectrum:
+Using the Basquin model, with a constant $$C'$$ which can be derived from the certification condition using the reference spectrum:
 $$
 |LF_i - {LF_\text{average}}\bigr|\propto\  C'\,N_i^b
 $$
@@ -676,7 +676,7 @@ Using the Janus B data and the Kossira & Reinke reference spectrum, Table 2 prov
 
 
 
-![](C:\Users\JLD\Downloads\12000\life JANUS k=6.6 v3.jpg)
+![](.\life JANUS k=6.6 v3.jpg)
 
 ​								Table 2: Palmgren-Miner ratio and life extension calculation
 
