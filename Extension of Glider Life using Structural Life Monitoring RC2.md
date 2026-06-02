@@ -837,7 +837,7 @@ The proposed method is conservative by design, compatible with EASA fatigue stre
 
 2. Kossira, H. (1982). “Determination of load spectra and their application for keeping the operational life proof of sporting airplanes.” *ICAS-Proc. 8/1982; ICAS-82-2.8.2*, pp. 1330-1338.
 
-3. EASA Certification Memorandum CM‑S‑006, *Certification, Type Design Definition, Material and Process Qualification for Composite Light Aircraft*. [Available at: [EASA Document Library](https://www.easa.europa.eu/en/document-library/product-certification-consultations/easa-cm-s-006)]
+3. EASA Certification Memorandum CM‑S‑006, *Certification, Type Design Definition, Material and Process Qualification for Composite Light Aircraft*.
 
 4. Pommera, G. (2000). *Minutes of LBA/DGAC meeting dedicated to 12,000 hours gliders fatigue life – November 14, 2000*.
 
