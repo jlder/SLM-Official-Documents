@@ -277,29 +277,25 @@ For fatigue analysis and demonstrations, there is a direct correlation between s
 
 #### 2.6.2 Material fatigue representation - Basquin model
 
-To be able to perform fatigue and life calculation, Basquin [14] has proposed a simple mathematical model, mainly focusing on the high cycle fatigue of the $$S/N$$ curve:
+To be able to perform fatigue and life calculation, Basquin [14] proposed a simple mathematical model for the high-cycle fatigue region of the $$S/N$$ curve. The standard stress-life form is:
 $$
-\sigma_{a} \;=\;\sigma'_f\;\Bigl(\frac{2N}{\varepsilon'_F}\Bigr)^{b}
+\sigma_{a} \;=\;\sigma'_f\;(2N_f)^{b}
 $$
 where:
-– $σ_a$ : stress amplitude
-– $σ'_f$ : fatigue strength coefficient (≈ intercept of the $$S/N$$ curve)
-– $N$ : number of cycles to failure
-– $ε'_F$ : fatigue ductility coefficient (scales the cycle axis)
-– $b$ : fatigue strength exponent (slope of the S–N curve)
 
-With the exception of $$N$$, all material property parameters are constants.
-For this purpose, the Basquin equation simplifies to:
+– $$\sigma_a$$ : stress amplitude  
+– $$\sigma'_f$$ : fatigue strength coefficient, corresponding to the intercept of the elastic stress-life curve  
+– $$N_f$$ : number of cycles to failure  
+– $$2N_f$$ : number of stress reversals to failure  
+– $$b$$ : fatigue strength exponent, i.e. the slope of the elastic stress-life curve in log-log representation
+
+For the present application, all constants, including $$\sigma'_f$$ and the factor $$2^b$$, can be absorbed into a single coefficient $$C$$. The relation can therefore be written in the simplified form:
 $$
 \sigma_{a} \;=\; C \; N^{b}
 $$
-with $$C$$ constant : 
-$$
-C\; = \sigma'_f\;\Bigl(\frac{2}{\varepsilon'_F}\Bigr)^{b}
-$$
-It expresses the stress‐amplitude $σ_a$ required to produce failure in $N$ cycles as a power‑law function of $N$.
+where $$N$$ is the number of cycles to failure and $$C$$ is a constant for the considered material system, laminate configuration and stress ratio.
 
-This model is only valid for the high cycle fatigue of the $$S/N$$ curve, and is not an issue for this application as, by design margins, a glider does not operate into the low cycle fatigue.  At the other end of the curve, the Basquin model is very conservative since it does not consider the asymptotic part of the $$S/N$$ curve in the very low stress variations region.
+This simplified Basquin power law expresses the stress amplitude $$\sigma_a$$ required to produce failure in $$N$$ cycles as a power-law function of $$N$$. It is appropriate for the high-cycle fatigue region of the $$S/N$$ curve, which is the relevant regime for this application because, by design margins, a glider does not operate in low-cycle fatigue. At the other end of the curve, the Basquin model remains conservative because it does not credit any possible asymptotic endurance behaviour in the very low stress variation region.
 
 
 
