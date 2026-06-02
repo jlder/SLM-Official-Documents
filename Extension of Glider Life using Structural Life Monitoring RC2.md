@@ -21,7 +21,7 @@ The lifespan of a glider is limited by its susceptibility to fatigue damage. Rep
 
 This paper presents a Structural Life Monitoring (SLM) method to justify extended fatigue life, without revisiting certified structural limits or reopening Type Certificate documents. The method compares the EASA-recognized Kossira & Reinke reference load spectrum against the actual load spectrum measured during real flights, using the same Kossira & Reinke counting method for both, ensuring a consistent and legitimate comparison. Damage accumulation is estimated using the Palmgren-Miner rule. As long as real cumulative damage remains below the certification damage limit, continued operation is justified. The ratio between reference and real damage accumulation directly quantifies the potential life extension.
 
-Preliminary results on an instrumented glider show a ratio of around 30, corresponding to potential life extensions of several thousand hours for typical training and cross-country operations. This is consistent with life assessments performed on certain gliders and similar composite structures in other industries. The method is conservative by design, maintains certified damage limits, and is compatible with EASA fatigue strength regulation requirements. A structured Concept of Operation and a certification pathway via EASA STC are proposed to support deployment.
+Preliminary results on an instrumented glider show a ratio of around 26, corresponding to potential life extensions of several thousand hours for typical training and cross-country operations. This is consistent with life assessments performed on certain gliders and similar composite structures in other industries. The method is conservative by design, maintains certified damage limits, and is compatible with EASA fatigue strength regulation requirements. A structured Concept of Operation and a certification pathway via EASA STC are proposed to support deployment.
 
 
 
@@ -51,9 +51,9 @@ Before getting into the methodology discussion, it is important to understand so
 
 **Utilization Category / Reference Load Spectrum:** Gliders are certified to operate under a defined category. The Reference Load Spectrum corresponds to the load factor occurrences a glider may experience within its category over its entire Service Life. Reference Load Spectra have been established for the main glider categories, and are recognized by the certification authorities. Most gliders are certified under the Utility category, and the corresponding Kossira and Reinke spectrum [2] is recognized by the certification authorities.
 
-**Fatigue Damage:** Aircraft structures are subject to variable loads throughout their service life, and repeated stress cycles can cause progressive structural deterioration — a phenomenon known as fatigue. Structural design aims to minimize stress concentrations, but fatigue damage accumulation must still be evaluated to ensure long-term structural integrity. One of the methods used in aerospace and accepted by EASA is the Palmgren-Miner rule, which combines load factor occurrences with the material's fatigue resistance to estimate cumulative damage. A Fatigue Damage value of 1 represents the theoretical failure threshold; designs are required to remain well below this limit over the intended service life. Glider structures are designed so that, in normal operations, stress levels remain very low and well within the elastic domain of the materials. This ensures that the structure is only subject to High Cycle Fatigue (HCF), as opposed to Low Cycle Fatigue, which involves plastic deformation and much shorter structural life. This has an important consequence for the choice of calculation methods, as it justifies the use of the Basquin model, which is specifically valid in the HCF domain and will be introduced later in the document.
+**Fatigue Damage:** Aircraft structures are subject to variable loads throughout their service life, and repeated stress cycles can cause progressive structural deterioration — a phenomenon known as fatigue. Structural design aims to minimize stress concentrations, but fatigue damage accumulation must still be evaluated to ensure long-term structural integrity. One of the methods used in aerospace and accepted by EASA is the Palmgren-Miner rule, which combines load factor occurrences with the material's fatigue resistance to estimate cumulative damage. A Fatigue Damage value of 1 represents the theoretical failure threshold; designs are required to remain well below this limit over the intended service life.
 
-**S/N Curves (Wöhler Curves):** Material fatigue resistance is characterized by the relationship between the stress amplitude applied to a specimen and the number of cycles it can sustain before failure. This relationship is represented graphically as an S/N curve, also known as a Wöhler curve, where S denotes the stress amplitude and N the corresponding number of cycles to failure. S/N curves are derived from laboratory testing. In the context of the Palmgren-Miner rule, the S/N curve is the link between the load spectrum and damage estimation: for each stress level in the Reference Load Spectrum, the corresponding number of cycles to failure is read from the S/N curve, allowing the contribution of each load cycle to the total accumulated damage to be quantified.
+**S/N Curves (Wöhler Curves):** Material fatigue resistance is characterized by the relationship between the stress amplitude applied to a specimen and the number of cycles it can sustain before failure. This relationship is represented graphically as an S/N curve, also known as a Wöhler curve, where S denotes the stress amplitude and N the corresponding number of cycles to failure. S/N curves are derived from laboratory testing. In the context of the Palmgren-Miner rule, the S/N curve is the link between the load spectrum and damage estimation: for each stress level in the Reference Load Spectrum, the corresponding number of cycles to failure is read from the S/N curve, allowing the contribution of each load cycle to the total accumulated damage to be quantified. Due to design and operational limits, gliders only suffer from high cycle fatigue.
 
 **Safety Factor:** Because uncertainties are inherent in the way structural fatigue and its associated limits are calculated, it is standard aerospace practice to apply an overall Safety Factor, even when margins are already included in individual calculations. The Safety Factor is applied to the Service Life Limit that is targeted. This means that fatigue calculations must be performed against a target equal to the intended Service Life Limit multiplied by the Safety Factor. Aerospace typically uses a Safety Factor of 3. For example, a glider with a Service Life Limit of 12,000 flight hours must demonstrate structural integrity up to 36,000 hours of equivalent fatigue.
 
@@ -88,10 +88,7 @@ Until the introduction of composite materials, gliders were manufactured using w
 The first composite gliders were manufactured in the late 1950s: fs 24 Phönix first flight was in 1957, followed by Hütter H 30 GFK in 1962 (which led to the Glasflügel Libelle) and Akaflieg Darmstadt D-36 in 1964. The D-36 led to the ASW 12 (Waibel / Schleicher), the Cirrus (Holighaus / Schempp-Hirth) and LS1 (Lemke / LS) sailplanes which were then built in series. By the 1970s, composite materials became the standard in high-performance glider manufacturing, and all modern gliders today are made with advanced composite structures.
 
 The glider community has been a pioneer in the use of composite materials, but industry's relative inexperience and limited understanding of fatigue behavior led some certification authorities to introduce a life limit. This 12,000-hour limit, which was set by LBA (Luftfahrt-Bundesamt), remains the standard life limit today under EASA.
-
 It should be noted that, even if authorities like LBA imposed a relatively short limit on new designs, other authorities such as TRAFI [8]  (Finland) and DGAC (France) approved much higher limits or even no limit (PIK20, Centrair C101).
-
-Even if some glider models considered for SLM have been initially certified under the TC holder National Authority, all Type Certificate Data Sheets are now under EASA product list. 
 
 #### 2.1.2 Current state and possible evolutions
 
@@ -163,7 +160,7 @@ This final step provides the representation in Figure 2 and Figure 3 which are c
 The sensor's signal, representing the glider body vertical axis load factor, is converted to digital values using  2<sup>10</sup> precision (signal is quantified into 1024 classes). With a typical load factor range of -4g to +6g, the difference between two adjacent classes is small (approximately 0.01g). Analyzing the transitions using this accuracy results in a high number of small transitions, which have no real value for fatigue and life analysis.
 The solution proposed by Kossira & Reinke is to use a sub class using 2<sup>5</sup> precision ( signal quantified in 32 classes). With such resolution, the difference between two adjacent 32-class values is approximately 0.32g which is more representative for fatigue and life analysis.
 
-<img src=".\class_32_1_to_32_-4_to_6.jpg" style="zoom:80%;" />
+<img src=".\class_32_1_to_32_-4_to_6.jpg" style="zoom:70%;" />
 
 ​											Table 1: 32-Class definition
 
@@ -393,12 +390,6 @@ These $$N_i$$ values are only functions of the spectrum and the slope of the $$S
 
 ### 3.1 Data acquisition
 
-The economic model of the glider industry places strict practical constraints on the instrumentation solutions that can reasonably be deployed. Installing complex or expensive Structural Health Monitoring sensors (e.g. ultrasonic, magnetic, thermal, etc.) — whether permanently or during periodic inspections — would not be economically viable for the vast majority of glider operators, who are typically small clubs operating aging fleets on limited budgets.
-
-Current maintenance practice reflects this reality. Inspection of composite structures relies primarily on visual inspection and the so-called "tap test," where a mechanic taps the surface and listens for changes in acoustic response indicating delamination or disbonding. A more refined variant uses the resonance frequency response of the wing: because the natural frequency of a composite wing is low, a small impulse from the mechanic is sufficient to excite the structure and measure its frequency response, revealing changes in structural stiffness. Metallic parts are typically inspected visually or using dye penetrant testing.
-
-Against this backdrop, accelerometers represent an ideal solution. They are low-cost, widely available, lightweight, and require no structural modification to install. As demonstrated in next section, they provide a measurement that is directly representative of the load cycles experienced by the structure, making them both technically justified and economically accessible for the glider community.
-
 #### 3.1.1 Load cycle acquisition using accelerometers
 
 **From bending moment to load factor — establishing proportionality**
@@ -430,12 +421,12 @@ The proportionality between load factor and spar stress holds during normal flig
 
 #### 3.1.2 Data acquisition for experimentation
 
-Real flight load factor $$N_z$$ is recorded in real time using accelerometer located as close as possible to the Center of Gravity, in a rigid area near the wing spar, with recording capabilities.
+Real flight load factor $$N_z$$ is recorded in real time using accelerometers  located on the wing spar (close enough from CG and very rigid), and electronic memory (e.g. SD card).
 This data is processed using the Kossira & Reinke method to build the real flight load spectra. Using the same method as Kossira & Reinke for their reference spectra is important to make comparison between real and reference spectra legitimate.
 
 During the initial experimentation, the takeoff and landing roll are treated as normal flight sequences. This is conservative since the Kossira & Reinke flight-only reference spectrum does not include ground operation phases. Any load factor occurrences recorded during takeoff and landing rolls are added to the real spectrum without a corresponding contribution in the reference spectrum, resulting in a lower Palmgren-Miner ratio at those load factor levels, and therefore a more conservative overall life extension estimate. No winch takeoffs are being planned with the experimentation gliders but, if this was the case, the same Kossira & Reinke assumptions would be used to add the corresponding load cycle occurrences to the experimentation glider spectrum. This is believed to cover for the limitations of using accelerometers instead of strain gauges.
 
-Since most of the energy from turbulence (CS 22.341) or glider movement is below 10 Hz, the accelerometers should be filtered with a cutoff of at least 10 Hz, requiring a minimum sampling rate of 20 Hz. Accelerometer calibration should be checked before every flight when the glider is static to make sure the magnitude of the gravity measured on the 3 axes is ~1g.
+Since most of the energy from turbulence (CS 22.341) or glider movement is below 10 Hz, the accelerometers should be filtered with a cutoff of at least 10 Hz, requiring a minimum sampling rate of 20 Hz. Accelerometer calibration can be checked before every flight when the glider is static to make sure the magnitude of the gravity measured on the 3 axes is ~1g.
 
 
 
@@ -614,48 +605,94 @@ In essence, regardless of the mission profile, gentler flying techniques will re
 
 #### 3.3.3  Material parameter $$b$$
 
-It is interesting to note that, when the reference and real spectra are given, only the parameter $$b$$ of the Basquin equation ( $$S/N$$ curve slope) has an impact on the damage and ratio calculation.
-Here is a list of typical $$b$$ values used in glider constructions:
+It is interesting to note that, when the reference and real spectra are given, only the parameter $$b$$ of the Basquin equation (i.e. the $$S/N$$ curve slope) has an impact on the damage and ratio calculation. Because this parameter is important to the complete demonstration, it should not be justified only from general composite fatigue textbooks. It should be selected from explicit fatigue fits obtained on composite structures that are reasonably close to glider structures in terms of material family, high-cycle fatigue regime and large lightly loaded composite construction.
 
-Glass Fiber Reinforced Polymer (GFRP) :
+The present SLM method targets ageing composite glider primary structures made predominantly from conventional GFRP/CFRP epoxy laminates. Therefore, the Basquin parameter shall be selected primarily from epoxy-based GFRP/CFRP fatigue data. Vinyl ester and polyester glass-fibre data are not considered representative of composite glider primary structures and are not used to define the glider parameter. They are nevertheless retained as a secondary comparison because they represent lower-performance glass/polymer systems and provide a useful check that the selected value remains conservative for a broader family of composite structures.
 
-- Range for $$b$$  : -0.07 to -0.1    [15]  [16] 
-- GFRP fatigue is dominated by progressive fiber-matrix debonding, matrix cracking, and fiber breakage. The lower value is driven by  fiber-matrix composites (typically epoxy) and off-axis performance.
+For this purpose, wind turbine blade composite literature is particularly useful. Wind turbine blades are not aircraft structures, but they are large GFRP/CFRP composite structures operating in high-cycle fatigue under variable-amplitude spectra. The SNL/MSU/DOE fatigue database and associated Sandia reports provide explicit fatigue fit parameters for a large number of wind-blade-relevant composite laminates, adhesives and structural details [15] [16] [17] [18]. These references use the power-law form:
 
-Carbon Fiber Reinforced Polymer (CFRP) :
+$$
+S = A N^B
+$$
 
-- Range for $$b$$  : -0.04 to -0.10  [17]  [18] 
+where $$S$$ is maximum applied stress or strain, $$N$$ is cycles to failure, and $$A$$ and $$B$$ are fitting parameters. The stress-fit exponent $$B$$ is directly equivalent to the Basquin exponent $$b$$ used in this paper:
 
-- CFRP has a slightly better fatigue resistance due to superior carbon fiber. Like GFRP, the lower value is driven by  fiber-matrix composites (typically epoxy) and off-axis performance.
+$$
+b = B
+$$
 
+and the exponent used in the damage equation is:
 
+$$
+K = -\frac{1}{b} = -\frac{1}{B}
+$$
 
-To avoid taking into account gliders' specific materials and construction, we can choose the most conservative b value for all composite materials i.e.   $$b = -0.15$$,  therefore    $$-1/b = 6.6$$. This value overestimates damage for CFRP but ensures worst-case safety for GFRP which is more often used on older gliders.
+The following values are extracted from SNL/MSU/DOE wind-blade composite fatigue data. The first group is used for the parameter selection because it corresponds to GFRP/CFRP epoxy laminates, which are the closest available published analogue to composite glider structures. The second group is retained only as non-representative secondary comparison.
+
+| Source | Material / detail | Matrix family | Loading | Reported stress-fit exponent $$B=b$$ | Equivalent $$K=-1/b$$ | Relevance for this paper |
+|---|---|---|---:|---:|---:|---|
+| SAND2010-7052, Table 9 [15] | QQ1 glass/epoxy multidirectional laminate | Epoxy | $$R=0.1$$ | -0.1556 | 6.43 | Steepest identified GFRP epoxy value; primary basis |
+| SAND2010-7052, Table 9 [15] | QQ1 glass/epoxy multidirectional laminate | Epoxy | $$R=-1$$ | -0.1378 | 7.26 | Reversed loading case; primary comparison |
+| SAND2010-7052, Table 9 [15] | QQ1 glass/epoxy multidirectional laminate | Epoxy | $$R=-0.5$$ | -0.1407 | 7.11 | Mixed tension-compression case; primary comparison |
+| SAND2010-7052, Table 9 [15] | QQ1 glass/epoxy multidirectional laminate | Epoxy | $$R=0.5$$ | -0.1313 | 7.62 | Tension-tension case; primary comparison |
+| SAND2010-7052, Table 9 [15] | QQ2 glass/epoxy multidirectional laminate | Epoxy | $$R=0.1$$ | -0.1216 | 8.22 | GFRP epoxy laminate; primary comparison |
+| SAND2010-7052, Table 9 [15] | QQ4 glass/epoxy multidirectional laminate | Epoxy | $$R=0.1$$ | -0.1263 | 7.92 | GFRP epoxy laminate; primary comparison |
+| SAND2010-7052, Table 9 [15] | TT-TPI-EP glass/epoxy blade laminate | Epoxy | $$R=0.1$$ | -0.1208 | 8.28 | GFRP epoxy blade laminate; primary comparison |
+| SAND2010-7052, Table 9 [15] | TT VARTM glass/epoxy laminate | Epoxy | $$R=0.1$$ | -0.1327 | 7.54 | Infused GFRP epoxy laminate; primary comparison |
+| AIAA 2012 / SNL-MSU-DOE database, Table 7 [16] | Multidirectional glass/epoxy laminate $$[(\pm45)_2/(0)_2]_s$$ | Epoxy | $$R=0.1$$ | -0.130 | 7.69 | GFRP epoxy multidirectional laminate; primary comparison |
+| AIAA 2012 / SNL-MSU-DOE database, Table 7 [16] | Triax glass/epoxy laminate $$(\pm45/0)_s$$ | Epoxy | $$R=0.1$$ | -0.143 | 6.99 | GFRP epoxy triax laminate; primary comparison |
+| AIAA 2012 / SNL-MSU-DOE database, Table 7 [16] | 2-ply-drop delamination detail | Epoxy laminate detail | $$R=0.1$$ | -0.120 | 8.3 | Structural-detail fatigue; primary comparison |
+| SAND2010-7052, Table 9 [15] | P2B carbon/glass hybrid, carbon-dominated axial laminate | Epoxy | $$R=0.1$$ | -0.0226 | 44.25 | CFRP-like behaviour; much less fatigue-sensitive |
+| SAND2010-7052, Table 9 [15] | P2B carbon/glass hybrid, carbon-dominated axial laminate | Epoxy | $$R=-1$$ | -0.0379 | 26.39 | CFRP-like reversed loading; much less fatigue-sensitive |
+| SAND2010-7052, Table 9 [15] | P2B carbon/glass hybrid, carbon-dominated axial laminate | Epoxy | $$R=-2$$ | -0.0455 | 21.98 | CFRP-like mixed loading; much less fatigue-sensitive |
+| SAND2010-7052, Table 9 [15] | TT-TPI-VE glass/vinyl ester blade laminate | Vinyl ester | $$R=0.1$$ | -0.1384 | 7.23 | Secondary only; not representative of glider epoxy structures |
+| SAND2010-7052, Table 9 [15] | SLA glass/polyester laminate | Polyester | $$R=0.1$$ | -0.1500 | 6.67 | Secondary only; not representative of glider epoxy structures |
+| SAND2010-7052, Table 9 [15] | SLB glass/polyester laminate | Polyester | $$R=0.1$$ | -0.1900 | 5.26 | Secondary only; lower-performance non-epoxy system, not used for selection |
+| SAND2010-7052, Table 9 [15] | SLC glass/polyester laminate | Polyester | $$R=0.1$$ | -0.1500 | 6.67 | Secondary only; not representative of glider epoxy structures |
+| AIAA 2012 / SNL-MSU-DOE database, Table 7 [16] | Multidirectional glass/vinyl ester laminate $$[(\pm45)_2/(0)_2]_s$$ | Vinyl ester | $$R=0.1$$ | -0.146 | 6.85 | Secondary only; not representative of glider epoxy structures |
+| AIAA 2012 / SNL-MSU-DOE database, Table 7 [16] | Multidirectional glass/polyester laminate $$[(\pm45)_2/(0)_2]_s$$ | Polyester | $$R=0.1$$ | -0.151 | 6.62 | Secondary only; not representative of glider epoxy structures |
+
+The data show that composite fatigue exponents are not universal material constants. They depend on fibre type, matrix, layup, fibre volume, loading direction, stress ratio, manufacturing process, adhesive/detail geometry and failure mode. General composite fatigue references also emphasize this dependence and the need to treat S/N parameters as system-specific rather than universal material properties [19] [20] [21].
+
+For the purpose of a generic ageing-glider Structural Life Monitoring method, however, the goal is not to claim a measured material property for each glider type. The goal is to select a conservative bounding exponent for comparative damage assessment when type-specific laminate data are not available. Within the reviewed epoxy-based GFRP/CFRP data, the steepest identified GFRP epoxy stress-fit exponent is $$B=-0.1556$$ for the QQ1 glass/epoxy multidirectional laminate at $$R=0.1$$. Other epoxy GFRP values are less severe, and carbon-dominated epoxy laminates show much shallower S/N slopes and therefore lower fatigue sensitivity.
+
+Therefore, to avoid taking into account each glider's specific materials and construction, the selected generic value is:
+
+$$
+\boxed{b = -0.16}
+$$
+
+and therefore:
+
+$$
+\boxed{K=-\frac{1}{b}=6.25}
+$$
+
+This value is slightly steeper than the steepest identified GFRP epoxy value in the reviewed SNL/MSU/DOE data and is strongly conservative for CFRP-dominated epoxy structures. Vinyl ester and polyester data are not used to define the value because they are not representative of composite glider epoxy structures. They are retained only as a secondary comparison showing that the selected value is also on the conservative side of several lower-performance non-epoxy multidirectional glass/polymer laminates, while isolated non-epoxy cases with steeper slopes are not used to define the glider parameter.
+
+The selected value should be treated as a conservative engineering parameter for the SLM damage index, not as a universal composite-material property. For a type-specific certification program, the selected value should be confirmed by the certification authority and, where required, by representative material, detail, repair, environmental or structural evidence.
 
 The equation for damage accumulation for the $$real$$ spectrum becomes:
 
 $$
-D_{real}\;=\;\frac{1}{C'}\sum_i {n_{i,real}} \;{\bigl|\mathrm{LF}_{i,real}-{LF_{average,real}}\bigr|^{6.6}}
+D_{real}\;=\;\frac{1}{C'}\sum_i {n_{i,real}} \;{\bigl|\mathrm{LF}_{i,real}-{LF_{average,real}}\bigr|^{6.25}}
 $$
 
 $$
-where \;\;C' \;=\;3\;\sum_i n_{i,ref}\,\bigl|\mathrm{LF}_{i,ref}-{LF_{average,ref}}\bigr|^{6.6}
+where \;\;C' \;=\;3\;\sum_i n_{i,ref}\,\bigl|\mathrm{LF}_{i,ref}-{LF_{average,ref}}\bigr|^{6.25}
 $$
 
 As long as $$D_{real}$$ stays below  $$\frac{1}{3}$$, the glider can continue operations.
 
-
-
 The equation for the life extension becomes:
+
 $$
-\boxed{t_\text{extension} = t_\text{remaining ref} \times ( \frac {\sum_i {⌊ \frac{ni, ref \times t_{real}}{6000}⌋} \; \times \; { {|LF_i - {LF_\text{average,ref}}|^{6.6}}}}{\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{6.6}}} - 1)}
+\boxed{t_\text{extension} = t_\text{remaining ref} \times ( \frac {\sum_i {⌊ \frac{ni, ref \times t_{real}}{6000}⌋} \; \times \; { {|LF_i - {LF_\text{average,ref}}|^{6.25}}}}{\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{6.25}}} - 1)}
 $$
 
-From a fatigue standpoint, this is a very conservative and safe approach, which provides significant safety margin.
+From a fatigue standpoint, this is a conservative approach because the selected exponent is slightly steeper than the steep end of reviewed GFRP epoxy laminate fatigue data and strongly penalizes the damage calculation relative to CFRP-dominated epoxy structures.
 
-It should be noted that the Palmgren-Miner rule and the $$S/N$$ curves are agnostic of the material being used.
-We could also consider the metallic parts using a typical Basquin parameter for aluminum  $$b= -0.2$$,    $$-1/b = 5$$ ,  and apply the same calculation method to metallic parts. Contrary to composite structures, the metallic parts can be inspected, but this is important to understand how metallic parts are aging to ensure the inspection interval is appropriate. 
-
+It should be noted that the Palmgren-Miner rule and S/N curves are generic calculation frameworks, but the fatigue parameters are not material-agnostic. The exponent $$b$$ and the associated fatigue resistance depend on material system, laminate architecture, stress ratio, environment, defects, repairs and failure mode. 
 
 
 ## 4. Results and discussion
@@ -672,11 +709,11 @@ The load spectrum used as a reference is the Kossira & Reinke flight-only spectr
 
 The simplified ratio:
 $$
-R = \frac {\sum_i {⌊ \frac{ni, ref \times t_{real}}{6000}⌋} \;\times\;{ {|LF_i - {LF_\text{average,ref}}|^{6.6}}}}{\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{6.6}}}
+R = \frac {\sum_i {⌊ \frac{ni, ref \times t_{real}}{6000}⌋} \;\times\;{ {|LF_i - {LF_\text{average,ref}}|^{6.25}}}}{\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{6.25}}}
 $$
 provides a direct method to evaluate the difference in damage accumulation. Since real flight loads are less severe than those predicted by the Kossira & Reinke distribution, $R$ is expected to be significantly greater than one, thereby justifying an extension in the glider’s operational life.
 
-The following is an example of  calculations performed with the conservative value of $$-1/b = 6.6$$, corresponding to worst-case GFRP structures.
+The following is an example of  calculations performed with the conservative value of $$-1/b = 6.25$$, corresponding to the selected conservative GFRP/CFRP epoxy bounding value.
 
 A very preliminary analysis has been performed on several flights with different pilots on a Janus B.
 The recording performed at 20 Hz sample rate was processed using the Kossira & Reinke counting method.
@@ -685,31 +722,31 @@ Using the Janus B data and the Kossira & Reinke reference spectrum, Table 2 prov
 
 
 
-![](.\life JANUS k=6.6 v3.jpg)
+![](.\life JANUS k=6.25 v1.jpg)
 
 ​								Table 2: Palmgren-Miner ratio and life extension calculation
 
 
 
-In this table the parameter K = $$-1/b$$ , corresponds to the slope of the $$S/N$$ curve and the Basquin parameter.
+In this table the parameter K = $$-1/b$$, corresponds to the exponent of the $$S/N$$ curve and the Basquin parameter.
 
 The damage ratio is simply the ratio of the $$Kossira \; occ * |n - avg|^K$$  column and $$ JANUS \; occ * |n - avg|^K$$ column sum.
 
 where 
 
-$$Kossira \; occ * |n - avg|^K$$ corresponds to   $${\sum_i {⌊ \frac{ni, ref\times t_{real}}{6000}⌋} \;\times\;{ {|LF_i - {LF_\text{average,ref}}|^{6.6}}}}$$
+$$Kossira \; occ * |n - avg|^K$$ corresponds to   $${\sum_i {⌊ \frac{ni, ref\times t_{real}}{6000}⌋} \;\times\;{ {|LF_i - {LF_\text{average,ref}}|^{6.25}}}}$$
 
-$$ JANUS \; occ * |n - avg|^K$$   corresponds to   $$\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{6.6}}$$
+$$ JANUS \; occ * |n - avg|^K$$   corresponds to   $$\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{6.25}}$$
 
 
 
-As shown in Table 2, the ratio between the Kossira & Reinke and real flight damage accumulation is 32.
-Assuming the glider continues to operate with a similar load spectrum until it reaches 12,000 hours (i.e. in ~300 hours), the life extension would be around 9,300 hours ( (32-1) x 300 ).
+As shown in Table 2, the ratio between the Kossira & Reinke and real flight damage accumulation is 26.
+Assuming the glider continues to operate with a similar load spectrum until it reaches 12,000 hours (i.e. in ~300 hours), the life extension would be around 7,500 hours ( (26-1) x 300 ).
 
-Table 2 can also be used to help understand the sensitivity of the Palmgren-Miner ratio $$R$$ to the type of flight operations. If we imagine a pilot performing a constant 4g loop every two hours of flying, because the Table 2 data is normalized to 6,000 hours, this would add 3,000 occurrences to classes 17 to 26 and would reduce the $$R$$ ratio example from 32 down to 2.
-This illustrates that the proposed method will justify life extension according to the use of the glider, and that a few high-load maneuvers will have a significant effect on the $$R$$ ratio, as per the Palmgren-Miner rule.  It should be noted that the  $$R$$ ratio of 2, due to the loops, is not accurate since the reference spectrum used for calculations is a flight-only, without aerobatics, spectrum. The purpose of the illustration is only to show that the $$R$$ ratio obtained when flying normally would be reduced by a factor of 16 due to aggressive maneuvers. 
+Table 2 can also be used to help understand the sensitivity of the Palmgren-Miner ratio $$R$$ to the type of flight operations. If we imagine a pilot performing a constant 4g loop every two hours of flying, because the Table 2 data is normalized to 6,000 hours, this would add 3,000 occurrences to classes 17 to 26 and would reduce the $$R$$ ratio example from 26 down to 2.
+This illustrates that the proposed method will justify life extension according to the use of the glider, and that a few high-load maneuvers will have a significant effect on the $$R$$ ratio, as per the Palmgren-Miner rule.  It should be noted that the  $$R$$ ratio of 2, due to the loops, is not accurate since the reference spectrum used for calculations is a flight-only, without aerobatics, spectrum. The purpose of the illustration is only to show that the $$R$$ ratio obtained when flying normally would be reduced by a factor of 13 due to aggressive maneuvers. 
 
-This study focuses on composite glider parts, hence the conservative GFRP $$6.6$$ Basquin parameter. It is however interesting to note that, if a more conservative Basquin parameter, typical of aluminum alloys : $$-\frac{1}{b} = 5$$  is used, we still obtain a very significant ratio of 12. This could be used to estimate the metallic parts life extension which would be around 3,600 hours (12 x 300 ), based on the Janus data. This is significantly more than the repetitive 1,000-hour inspections, currently required after 9,000 hours. This legitimizes the continuation of these recurring inspections at 13,000 hours, 14,000 hours and beyond.
+This study focuses on composite glider parts, hence the conservative GFRP/CFRP epoxy $$6.25$$ Basquin parameter. It is however interesting to note that, if a more conservative Basquin parameter, typical of aluminum alloys : $$-\frac{1}{b} = 5$$  is used, we still obtain a very significant ratio of 12. This could be used to estimate the metallic parts life extension which would be around 3,600 hours (12 x 300 ), based on the Janus data. This is significantly more than the repetitive 1,000-hour inspections, currently required after 9,000 hours. This legitimizes the continuation of these recurring inspections at 13,000 hours, 14,000 hours and beyond.
 It should also be noted that, contrary to the composite structures, these metallic parts (wing shear pins and bushings, spar pins and bushings, tail fittings, etc.) can generally be inspected and eventually replaced during the repetitive inspections, reducing further the risk of failure. 
 
 
@@ -786,9 +823,9 @@ The STC documents could be made available to the interested Type Certificate hol
 
 This paper presents a methodology for extending the operational life of composite gliders using Structural Life Monitoring. By measuring in-flight accelerations and processing them with the Palmgren-Miner rule, it is possible to compute a glider's real cumulative fatigue damage. Crucially, both the reference and real flight spectra are processed using the same Kossira & Reinke counting method, ensuring a consistent and legitimate comparison. As long as real cumulative damage does not exceed the certification damage limit established during type certification, continued operation is justified — without any requirement to reopen Type Certificate documents or revise certified structural limits.
 
-Preliminary results show that, even when applying conservative calculation methods and worst-case composite material fatigue parameters, damage accumulation from actual flights is orders of magnitude lower than damage accumulation predicted by the reference spectrum. A damage ratio of around 30 has been observed on an instrumented glider, corresponding to potential life extensions of several thousand hours for typical training and cross-country operations. Interestingly, the same approach applied to metallic components, using aluminum Basquin parameters, also yields significant life extension, legitimizing the continuation of recurring structural inspections beyond the current life limit. It should however be noted that life extension is directly dependent on how the glider is flown — gentler flying results in proportionally greater extension.
+Preliminary results show that, even when applying conservative calculation methods and worst-case composite material fatigue parameters, damage accumulation from actual flights is orders of magnitude lower than damage accumulation predicted by the reference spectrum. A damage ratio of around 26 has been observed on an instrumented glider, corresponding to potential life extensions of several thousand hours for typical training and cross-country operations. Interestingly, the same approach applied to metallic components, using aluminum Basquin parameters, also yields significant life extension, legitimizing the continuation of recurring structural inspections beyond the current life limit. It should however be noted that life extension is directly dependent on how the glider is flown — gentler flying results in proportionally greater extension.
 
-These findings are consistent with life assessments performed on similar composite structures in other industries, and with the 65,000-hour life assessment performed by TRAFI for the PIK-20D in 2015.
+These findings are consistent with life assessments performed on similar composite structures in other industries, and with the life assessment performed by TRAFI for the PIK-20D in 2015.
 
 The proposed method is conservative by design, compatible with EASA fatigue strength regulation requirements, and provides economic and environmental benefits while maintaining the same safety level as the original Type Certificate (same certified damage limit as the original TC). A structured three-phase Concept of Operation — covering instrumentation, fatigue evaluation at the certified life limit, and monitored operation beyond it — has been outlined as a practical deployment framework. It is advisable to first validate this approach on a selected fleet of instrumented gliders. The findings could then support the establishment of an EASA Certification Review Item, leading to an Acceptable Means of Compliance for SLM under CS-22, and ultimately deployed on aging gliders through Supplemental Type Certificates or manufacturer Service Bulletins.
 
@@ -808,11 +845,11 @@ The proposed method is conservative by design, compatible with EASA fatigue stre
 
 6. Easy Access Rules for Very Light Aeroplanes (CS-VLA)  /  EASA AMC VLA 572
 
-7.  Kensche, C. (2019). Numerical Comparison of Glider Load Spectra. Technical Soaring.
+7. Kensche, C. (2019). Numerical Comparison of Glider Load Spectra. Technical Soaring.
 
-8.  Soinne , Erkki (2015), PIK-20D Fatigue evaluation, Trafi Research Reports Trafin tutkimuksia Trafis undersökningsrapporter 7/2015
+8. Soinne, Erkki (2015), PIK-20D Fatigue evaluation, Trafi Research Reports Trafin tutkimuksia Trafis undersökningsrapporter 7/2015.
 
-9.  C.A. Patching & L.A. Wood (1991). Fatigue testing of a GFRP glider, OSTIV Congress, Uvalde, Texas, U.S.A.
+9. C.A. Patching & L.A. Wood (1991). Fatigue testing of a GFRP glider, OSTIV Congress, Uvalde, Texas, U.S.A.
 
 10. Standard practices for cycle counting in fatigue analysis. ASTM E 1049-85.
 
@@ -822,14 +859,19 @@ The proposed method is conservative by design, compatible with EASA fatigue stre
 
 13. Palmgren, A. (1947). *A Probabilistic Theory of Cumulative Damage.*
 
-14. Basquin, O.H. (1910).  "The exponential law of endurance tests." Proceedings of the ASTM, Vol. 10, pp. 625–630.
+14. Basquin, O.H. (1910). “The exponential law of endurance tests.” Proceedings of the ASTM, Vol. 10, pp. 625–630.
 
-15. Mandell, J. F. (1982). *Fatigue Behavior of Fiber Resin Composites*. Elsevier.
+15. Mandell, J. F., Samborsky, D. D., Agastra, P., Sears, A. T. and Wilson, T. J. (2010). *Analysis of SNL/MSU/DOE Fatigue Database Trends for Wind Turbine Blade Materials.* Sandia Contractor Report SAND2010‑7052. Sandia National Laboratories.
 
-16. Harris, B. (2003). *Fatigue in Composites: Science and Technology of the Fatigue Response of Fibre-Reinforced Plastics*. Woodhead Publishing.
+16. Samborsky, D. D., Agastra, P. and Mandell, J. F. (2012). “The SNL/MSU/DOE Fatigue of Composite Materials Database: Recent Trends.” AIAA/ASME Wind Energy Symposium.
 
-17. Talreja, R. (1985). *Fatigue of Composite Materials*. Technomic Publishing.
+17. Samborsky, D. D., Agastra, P. and Mandell, J. F. (2010). “Fatigue Trends for Wind Blade Infusion Resins and Fabrics.” AIAA‑2010‑2820, 51st AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics, and Materials Conference, Orlando. 
 
-18. Bathias, C. (1999). *Fatigue of Materials and Structures: Application to Design and Damage*. Wiley.
+18. Mandell, J. F., Samborsky, D. D. and Cairns, D. S. (2002). *Fatigue of Composite Materials and Substructures for Wind Turbine Blade.* Sandia Contractor Report SAND2002‑0771. Sandia National Laboratories.
 
-    
+19. Harris, B. (ed.) (2003). *Fatigue in Composites: Science and Technology of the Fatigue Response of Fibre-Reinforced Plastics*. Woodhead Publishing.
+
+20. Talreja, R. (1985). *Fatigue of Composite Materials*. Technomic Publishing.
+
+21. Bathias, C. (1999). *Fatigue of Materials and Structures: Application to Design and Damage*. Wiley.
+
