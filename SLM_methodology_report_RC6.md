@@ -184,11 +184,18 @@ Life extension is conditional on the assumption that future operations follow th
 
 ### 6. Concept of Operation associated with methodology
 
-**Phase 1 — Instrumentation and Data Collection** *(below the certified life limit)* SLM recorder installed per CS-STAN 104b / Form 123. Annual 6-face calibration recorded in the aircraft logbook to verify data accuracy. Any flight or phase occurring without valid SLM data, including sensor fault, data corruption, missed calibration, or non-flight phases excluded from accelerometer-based processing, is substituted at the reference Kossira & Reinke damage rate for the corresponding duration or operational exposure.
+The operational implementation of all phases shall be defined in the STC-approved documents associated with this methodology, in particular:
 
-**Phase 2 — Fatigue Evaluation at the Certified Life Limit** Dedicated structural inspection at 12,000 hours. Assessment of $D_{total}$ against the $D = 1/3$ limit. Continued operation authorized if inspection does not identify issues and  $D_{total} < 1/3$.
+- the **Instructions for Continued Airworthiness (ICA)**; and
+- the **Installation, Operating and Maintenance Manual for the SLM recorder and associated data process**.
 
-**Phase 3 — Operation Beyond the Certified Life Limit** Continuation of Phase 1 monitoring. Go/No-Go decision at each ARC renewal based on current $D_{total}$ and projected damage rate to next inspection. Recurring structural inspections at maximum 1,000-hour / 5-year intervals. Operation continues until $D_{total}$ reaches $1/3$.
+These documents define the practical installation, calibration, data acquisition, data validation, processing, maintenance, inspection, and airworthiness decision rules required to apply the methodology consistently.
+
+**Phase 1 — Instrumentation and Data Collection** *(below the certified life limit)* SLM recorder installed per CS-STAN 104b / Form 123 and in accordance with the approved Installation, Operating and Maintenance Manual. Installation calibration and annual 6-face calibration recorded in the aircraft logbook to verify data accuracy. Any flight or phase occurring without valid SLM data, including sensor fault, data corruption, missed calibration, or non-flight phases excluded from accelerometer-based processing, is substituted at the reference Kossira & Reinke damage rate for the corresponding duration or operational exposure, as defined in the approved ICA and data-processing procedure.
+
+**Phase 2 — Fatigue Evaluation at the Certified Life Limit** Dedicated structural inspection at 12,000 hours, performed in accordance with the approved ICA. Assessment of $D_{total}$ against the $D = 1/3$ limit using the approved data-processing procedure. Continued operation authorized if inspection does not identify issues and  $D_{total} < 1/3$.
+
+**Phase 3 — Operation Beyond the Certified Life Limit** Continuation of Phase 1 monitoring in accordance with the approved Installation, Operating and Maintenance Manual and ICA. Go/No-Go decision at each ARC renewal based on current $D_{total}$ and projected damage rate to next inspection. Recurring structural inspections at maximum 1,000-hour / 5-year intervals, or as otherwise defined in the approved ICA. Operation continues until $D_{total}$ reaches $1/3$.
 
 ------
 
@@ -238,6 +245,6 @@ Implementation of the method requires the applicable Kossira & Reinke Utility re
 
 [6] Basquin, O.H. (1910). "The exponential law of endurance tests." Proceedings of the ASTM, Vol. 10, pp. 625–630.
 
-[7] Derouineau, J.L. (OSTIV Publication pending). "Extension of Glider Life using Structural Life Monitoring."
+[7] Derouineau, J.L. (OSTIV Publication). "Extension of Glider Life using Structural Life Monitoring."
 
 [8] Kossira, H. and Reinke, W. "Festigkeit von modernen GFK-Konstruktionen für Segelflugzeuge - Bestimmung eines Belastungskollektives." IFL-IB 84-01, Technische Universität Braunschweig.
