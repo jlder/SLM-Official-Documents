@@ -430,7 +430,7 @@ The proportionality between load factor and spar stress holds during normal flig
 
 #### 3.1.2 Data acquisition for experimentation
 
-Real flight load factor $$N_z$$ is recorded in real time using accelerometers  located on the wing spar (close enough from CG and very rigid), and electronic memory (e.g. SD card).
+Real flight load factor $$N_z$$ is recorded in real time using accelerometer located as close as possible to the Center of Gravity, in a rigid area near the wing spar, with recording capabilities.
 This data is processed using the Kossira & Reinke method to build the real flight load spectra. Using the same method as Kossira & Reinke for their reference spectra is important to make comparison between real and reference spectra legitimate.
 
 During the initial experimentation, the takeoff and landing roll are treated as normal flight sequences. This is conservative since the Kossira & Reinke flight-only reference spectrum does not include ground operation phases. Any load factor occurrences recorded during takeoff and landing rolls are added to the real spectrum without a corresponding contribution in the reference spectrum, resulting in a lower Palmgren-Miner ratio at those load factor levels, and therefore a more conservative overall life extension estimate. No winch takeoffs are being planned with the experimentation gliders but, if this was the case, the same Kossira & Reinke assumptions would be used to add the corresponding load cycle occurrences to the experimentation glider spectrum. This is believed to cover for the limitations of using accelerometers instead of strain gauges.
