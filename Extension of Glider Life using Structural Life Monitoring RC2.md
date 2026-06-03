@@ -45,13 +45,13 @@ This is becoming a costly dilemma for small glider clubs which may not be able t
 The carbon footprint of composite structures is also a growing environmental concern since glider manufacturers currently do not provide solutions for recycling their composite gliders.
 Extending glider life would extend their value and reduce the environmental impact.
 
-Before getting into the methodology discussion, it is important to understand some key definitions: Service Life Limit, Reference Load Spectrum, Fatigue Damage, S/N Curves and Safety Factor.
+Before getting into the methodology discussion, it is important to understand some key definitions: Service Life Limit, Reference Load Spectrum, Fatigue and EFI, S/N Curves and Safety Factor.
 
 **Service Life Limit:** The Service Life Limit corresponds to the time a glider can fly, within the operational limits of its certified utilization category, without risking structural damage due to fatigue. Type Certificate holders may use different methods to demonstrate compliance with structural fatigue requirements, as accepted by the certification authorities. While these methods may vary, they all lead to an approved Service Life Limit. From an operational standpoint, it is this approved limit — not the method used to derive it — that governs how long a glider may remain in service. A typical glider Service Life Limit is 12,000 flight hours.
 
 **Utilization Category / Reference Load Spectrum:** Gliders are certified to operate under a defined category. The Reference Load Spectrum corresponds to the load factor occurrences a glider may experience within its category over its entire Service Life. Reference Load Spectra have been established for the main glider categories, and are recognized by the certification authorities. Most gliders are certified under the Utility category, and the corresponding Kossira and Reinke spectrum [2] is recognized by the certification authorities.
 
-**Fatigue and Equivalent Fatigue Index (EFI):** Aircraft structures are subject to variable loads throughout their service life, and repeated stress cycles can cause progressive structural deterioration — a phenomenon known as fatigue. Structural design aims to minimize stress concentrations, but fatigue accumulation must still be evaluated to ensure long-term structural integrity. One of the methods used in aerospace and accepted by EASA is the Palmgren-Miner rule, which combines load factor occurrences with the material's fatigue resistance. In classical notation, the resulting cumulative value is often denoted $$D$$, for damage. In the present SLM method, the same mathematical quantity is referred to as the **Equivalent Fatigue Index**, noted $$EFI$$. EFI is a conservative usage-severity index calculated consistently for both the certification reference spectrum and the measured operational spectrum.
+**Fatigue and Equivalent Fatigue Index (EFI):** Aircraft structures are subject to variable loads throughout their service life, and repeated stress cycles can cause progressive structural deterioration — a phenomenon known as fatigue. Structural design aims to minimize stress concentrations, but fatigue accumulation must still be evaluated to ensure long-term structural integrity. One of the methods used in aerospace and accepted by EASA is the Palmgren-Miner rule, which combines load factor occurrences with the material's fatigue resistance. In the present SLM method, the cumulative Palmgren-Miner quantity is referred to as the **Equivalent Fatigue Index**, noted $$EFI$$. EFI is a conservative usage-severity index calculated consistently for both the certification reference spectrum and the measured operational spectrum.
 
 **S/N Curves (Wöhler Curves):** Material fatigue resistance is characterized by the relationship between the stress amplitude applied to a specimen and the number of cycles it can sustain before failure. This relationship is represented graphically as an S/N curve, also known as a Wöhler curve, where S denotes the stress amplitude and N the corresponding number of cycles to failure. S/N curves are derived from laboratory testing. In the context of the Palmgren-Miner rule, the S/N curve is the link between the load spectrum and damage estimation: for each stress level in the Reference Load Spectrum, the corresponding number of cycles to failure is read from the S/N curve, allowing the contribution of each load cycle to the total accumulated damage to be quantified. Due to design and operational limits, gliders only suffer from high cycle fatigue.
 
@@ -105,7 +105,7 @@ However, there has been one particularly interesting full-scale fatigue test per
 
 The experience gained in the aerospace industry, as well as other industries like wind turbines, from inspection of aging composite structures, improved fiber characterization and better modeling, has validated the excellent fatigue behavior of composite airframes. This confirms that the historical 12,000-hour life limit imposed on gliders is extremely conservative as already demonstrated in a previous analysis "Numerical Comparison of Glider Load Spectra" [7].
 
-Even if recent analyses have identified structural margin opportunities, it is not practical to reopen structure analysis for gliders certified 30 or more years ago. However, thanks to better understanding of glider operational usage and the corresponding composite materials damage accumulation due to fatigue, our proposed method provides a solution to extend the life of gliders, without changing the certification damage accumulation limit associated with the safe life limit (12,000 hours).
+Even if recent analyses have identified structural margin opportunities, it is not practical to reopen structure analysis for gliders certified 30 or more years ago. However, thanks to better understanding of glider operational usage and the corresponding composite-material EFI accumulation due to fatigue, our proposed method provides a solution to extend the life of gliders, without changing the certification damage accumulation limit associated with the safe life limit (12,000 hours).
 
 
 
@@ -117,7 +117,7 @@ To establish their load spectra, they instrumented gliders which were flown in d
 The counting method used by Kossira & Reinke is very similar to the "peak and valley" solution [10], with the addition of a simple filter to avoid counting minor load factor variations, and the optional use of a Markov transition matrix to count occurrences. These occurrences specify the expected number of cycles at various stress levels over a defined operational period, and form the basis for fatigue life predictions. However, it should be noted that these spectra have been developed to cover the envelope of all possible operations and have built-in conservatism compared to most typical operations.
 The KoSMOS spectrum (Kollektiv für Segelflugzeuge, Motorflugzeuge und Motor-Segler, i.e. load collective for sailplanes, aeroplanes and powered gliders) is based on the original data from Kossira & Reinke with omissions of the low level stress variations. The goal is to significantly reduce test time when the spectrum is used for ground tests. Because our goal is to eventually compare the reference spectrum to the actual spectrum flown by a given glider, it is more suitable to use the original Kossira & Reinke spectra from their 1982 publication [2], which do not have these omissions.
 
-Kossira & Reinke published multiple spectra corresponding to different utilization categories. The initial analysis presented in this paper uses the flight-only spectrum, which excludes simple aerobatics and ground operations. While most gliders are certified under the Utility category — which permits limited aerobatics — this conservative choice ensures that the results represent a lower bound of the potential life extension. Including simple aerobatics and ground operations would add occurrences at higher load factors, increasing the reference damage accumulation and yielding a more favorable damage ratio. Figure 2 is a representation of the Kossira & Reinke flight-only spectrum, normalized at 6,000 flight hours.
+Kossira & Reinke published multiple spectra corresponding to different utilization categories. The initial analysis presented in this paper uses the flight-only spectrum, which excludes simple aerobatics and ground operations. While most gliders are certified under the Utility category — which permits limited aerobatics — this conservative choice ensures that the results represent a lower bound of the potential life extension. Including simple aerobatics and ground operations would add occurrences at higher load factors, increasing the reference EFI accumulation and yielding a more favorable EFI ratio. Figure 2 is a representation of the Kossira & Reinke flight-only spectrum, normalized at 6,000 flight hours.
 
 
 
@@ -132,7 +132,7 @@ Kossira & Reinke’s subsequent work, *“Determination of load spectra and thei
 
 ### 2.3 Kossira & Reinke counting method
 
-Multiple counting methods have been developed over time, e.g. level crossing, peaks & valleys or Rainflow [10], and there are differences in the resulting occurrence calculations. The goal of this study is to compare the damage accumulation between the reference  spectrum and real flight spectra, and use the counting method developed by Kossira & Reinke [2] for their own spectra to compute occurrences for the real flight spectra.
+Multiple counting methods have been developed over time, e.g. level crossing, peaks & valleys or Rainflow [10], and there are differences in the resulting occurrence calculations. The goal of this study is to compare the EFI accumulation between the reference spectrum and real flight spectra, and use the counting method developed by Kossira & Reinke [2] for their own spectra to compute occurrences for the real flight spectra.
 
 #### 2.3.1 Kossira & Reinke counting method principle
 
@@ -310,7 +310,7 @@ This simplified Basquin power law expresses the stress amplitude $$\sigma_a$$ re
 
 By design, a glider has a finite fatigue life potential. While the glider is operated, this potential is consumed by the occurrence of load variations (cycles). The reference load factor spectrum and the measured real load factor spectrum are two examples of how the occurrences are distributed as a function of load factor and frequency.
 
-When the Palmgren-Miner rule is used in a conventional fatigue calculation, the cumulative value is often denoted $$D$$ and the value $$D = 1$$ is associated with the theoretical failure threshold. In the SLM method, the same mathematical quantity is denoted $$EFI$$ and is used as an equivalent fatigue exposure index rather than as a direct measurement of physical damage.
+Under the conventional Palmgren-Miner interpretation, the value $$EFI=1$$ is associated with the theoretical failure threshold. In the SLM method, this same mathematical quantity is used as an equivalent fatigue exposure index.
 
 Certification requirements and common practice incorporate a safety factor of 3, so that if a life of e.g., 12,000 hours is targeted, the calculations and validations should be performed for a duration of 36,000 hours.
 
@@ -401,7 +401,7 @@ These $$N_i$$ values are only functions of the spectrum and the slope of the $$S
 
 To establish their spectra, Kossira & Reinke originally instrumented gliders with strain gauges on the wing spar at the root, measuring the spar bending moment $M_{br}$. A reference bending moment $M_{br1g}$ was established by flying in calm air with a stable trajectory (vertical acceleration ≈ 1g). Bending moments measured during flight were then divided by this reference value, yielding the normalized ratio $\frac{M_{br}}{M_{br1g}}$, which represents the wing loading in flight.
 
-When the glider is primarily subject to aerodynamic forces, this ratio is directly proportional to the vertical load factor $N_z$, which can be measured more practically using an accelerometer. This proportionality is the foundation of the SLM approach: if stress at any critical structural location is proportional to the load factor, then measuring load factor is sufficient to estimate fatigue damage accumulation.
+When the glider is primarily subject to aerodynamic forces, this ratio is directly proportional to the vertical load factor $N_z$, which can be measured more practically using an accelerometer. This proportionality is the foundation of the SLM approach: if stress at any critical structural location is proportional to the load factor, then measuring load factor is sufficient to estimate EFI accumulation.
 
 **Validity of the proportionality within the certified flight envelope**
 
@@ -411,7 +411,7 @@ This objection is valid in general, but does not apply when the glider is operat
 
 This is further reinforced by the use of load factor limits in glider operational documentation. The maximum and minimum load factor limits published in the Flight Manual are precisely the operational expression of this design constraint: they are the values beyond which structural stress would exceed acceptable levels. As long as the glider is flown within these limits and within the authorized configuration and mass envelope, load factor is a valid and sufficient proxy for structural stress.
 
-Furthermore, it is important to note that the absolute value of the proportionality coefficient between load factor and local stress is not required. The Palmgren-Miner damage accumulation relies on stress amplitudes — that is, the variation of stress between successive peaks and valleys — rather than absolute stress values. Since stress is proportional to load factor within the authorized flight envelope, stress amplitude is equally proportional to load factor amplitude. The proportionality coefficient therefore cancels out when computing the damage ratio between the reference and real spectra. What matters is not the magnitude of the coefficient, nor where on the structure the maximum stress occurs, but simply that the glider is operated within its authorized flight envelope, ensuring that load factor variations remain a consistent and valid representation of stress variations throughout the structure.
+Furthermore, it is important to note that the absolute value of the proportionality coefficient between load factor and local stress is not required. The Palmgren-Miner EFI calculation relies on stress amplitudes — that is, the variation of stress between successive peaks and valleys — rather than absolute stress values. Since stress is proportional to load factor within the authorized flight envelope, stress amplitude is equally proportional to load factor amplitude. The proportionality coefficient therefore cancels out when computing the EFI ratio between the reference and real spectra. What matters is not the magnitude of the coefficient, nor where on the structure the maximum stress occurs, but simply that the glider is operated within its authorized flight envelope, ensuring that load factor variations remain a consistent and valid representation of stress variations throughout the structure.
 
 Although not explicitly documented in their work [11], this is probably the reason why Kossira & Reinke only instrumented the glider under test at the root of the wing spar.
 They were looking for stress variations centered around the average flight stress (i.e. $\frac{M_{br}}{M_{br1g}}$).
@@ -497,22 +497,22 @@ The condition is that the glider can stay in operation as long as $$EFI_{total}\
 
 #### 3.3.2  Life extension estimation
 
-Once the damage from actual flights has been computed using the Palmgren-Miner rule, it is possible to estimate how much longer a glider can operate beyond the certified 12,000-hour life limit, with the important assumption that the real usage continues with the same load pattern as the flights already performed.
+Once the EFI from actual flights has been computed using the Palmgren-Miner framework, it is possible to estimate how much longer a glider can operate beyond the certified 12,000-hour life limit, with the important assumption that future usage remains similar to the measured flights already collected.
 
 ##### 3.3.2.1 EFI accumulation rate
 
-As EFI accumulation is assumed to be linear with respect to time under a given load spectrum, as defined by the Palmgren-Miner rule, the total damage a glider accumulates over time can be expressed as:
+As EFI accumulation is assumed to be linear with respect to time under a given load spectrum, the total EFI accumulated over time can be expressed as:
 $$
-D = t \cdot D_{\text{unit}},
+EFI = t \cdot EFI_{unit},
 $$
 
 where:
 
-$$EFI$$  is the total accumulated equivalent fatigue index,
+$$EFI$$ is the total accumulated equivalent fatigue index,
 
-$$t$$  is the flight time,
+$$t$$ is the flight time,
 
-$$EFI_{unit}$$  is the EFI per hour under a specific load spectrum.
+$$EFI_{unit}$$ is the EFI per hour under a specific load spectrum.
 
 
 
@@ -520,31 +520,31 @@ $$EFI_{unit}$$  is the EFI per hour under a specific load spectrum.
 
 Let:
 
-$$D_\text{unit real}$$  = damage accumulated from actual flight load spectrum in 1 hour
+$$EFI_{unit,real}$$ = EFI accumulated from the measured real-flight load spectrum in 1 hour
 
-$$D_\text{unit ref}$$ = damage predicted by the certified Kossira & Reinke load spectrum in 1 hour
+$$EFI_{unit,ref}$$ = EFI predicted by the certified Kossira & Reinke reference load spectrum in 1 hour
 
-$$t_{remaining\;ref}$$ = flight time remaining until the certified 12,000 hours are reached (under reference spectrum usage)
+$$t_{remaining\;ref}$$ = flight time remaining until the certified 12,000 hours are reached under reference spectrum usage
 
-$$t_{remaining\;real}$$ = estimated remaining life under actual usage
+$$t_{remaining\;real}$$ = estimated remaining life under measured usage
 
-$$D_{\text{remaining}}$$ = damage potential remaining until the certification limit $${D = \frac {1}{3}}$$ is reached
+$$EFI_{remaining}$$ = remaining EFI potential until the certification limit $$EFI=\frac {1}{3}$$ is reached
 
-For a given remaining damage potential $$D_{\text{remaining}}$$, the time required to consume it differs based on the spectrum used:
+For a given remaining EFI potential $$EFI_{remaining}$$, the time required to consume it differs based on the spectrum used:
 
 - Under the certified reference spectrum:
   $$
-  t_{\text{remaining ref}} = \frac{D_{\text{remaining}}}{D_{\text{unit ref}}}
+  t_{\text{remaining ref}} = \frac{EFI_{remaining}}{EFI_{unit,ref}}
   $$
 
-- Under the actual (real) measured flight data:
+- Under the measured real-flight spectrum:
   $$
-  t_{\text{remaining real}} = \frac{D_{\text{remaining}}}{D_{\text{unit real}}}
+  t_{\text{remaining real}} = \frac{EFI_{remaining}}{EFI_{unit,real}}
   $$
 
-and define the Palmgren-Miner damage ratio \(R\) as:
+The Palmgren-Miner ratio $$R$$ is therefore defined as the ratio between the reference EFI rate and the measured real-flight EFI rate:
 $$
-\boxed{R = \frac{D_{\text{unit ref}}}{D_{\text{unit real}}}}
+\boxed{R = \frac{EFI_{unit,ref}}{EFI_{unit,real}}}
 $$
 
 Substituting into the previous expression:
@@ -552,8 +552,7 @@ $$
 t_{\text{remaining real}} = t_{\text{remaining ref}} \times R
 $$
 
-Thus, if real-world flights result in significantly lower damage per hour than the conservative certified assumption, the remaining life is proportionally extended.
-
+Thus, if measured real-world flights result in a significantly lower EFI rate than the conservative certified reference assumption, the remaining life is proportionally extended.
 
 
 
@@ -571,52 +570,43 @@ t_{extension} = (R - 1) \times t_{remaining\;ref}
 $$
 To ensure the Palmgren-Miner ratio $$R$$ is valid, both EFI values must be computed over the same duration (e.g., the same number of flight hours).
 
-For our  specific problem, $$R$$ should be estimated using the data from the real spectrum, which by definition has a duration of $$t_\text{real}$$ , and the data from the reference spectra, normalized to the same  $$t_{real}$$ hours:
+For the present application, $$R$$ is estimated using the measured real spectrum, which has a duration of $$t_\text{real}$$, and the reference spectrum normalized to the same $$t_{real}$$ hours:
 
 - $$t_{real}$$ = duration of real flight data collected (in hours)
-- $$EFI_{real}$$ = EFI accumulated from actual flight load spectrum in  $$t_{real}$$ hours
-- $$D_\text{ref}$$ = damage predicted by the certified Kossira & Reinke reference load spectrum in  $$t_{real}$$ hours
+- $$EFI_{real}$$ = EFI accumulated from the measured real-flight load spectrum in $$t_{real}$$ hours
+- $$EFI_{ref}$$ = EFI predicted by the certified Kossira & Reinke reference load spectrum in $$t_{real}$$ hours
 
 $$
-D_\text{ref} = D_\text{unit ref}\times t_\text{real}
+EFI_\text{ref} = EFI_{unit,ref}\times t_\text{real}
 \\
-D_\text{real} = D_\text{unit real} \times t_\text{real}
+EFI_\text{real} = EFI_{unit,real} \times t_\text{real}
 \\
-R = \frac{D_\text{ref}}{D_\text{real}}
+R = \frac{EFI_\text{ref}}{EFI_\text{real}}
 $$
 
-If the reference spectrum has been calculated over the typical 6,000 flight hours, for $$R$$ calculation, it should be normalized to the  time used for real spectrum observation  $$t_\text{real}$$ , using $$⌊ \frac{ni, ref \times t_{real}}{6000}⌋$$. The purpose of using the lower  integer part of a real number (denoted **⌊   ⌋**), is to provide additional conservatism when adjusting the $$n_i$$ of the reference spectrum to the same time exposure as the real flight data, as the latter is much smaller.
+If the reference spectrum has been calculated over the typical 6,000 flight hours, for $$R$$ calculation, it should be normalized to the time used for real spectrum observation $$t_\text{real}$$, using $$⌊ \frac{n_{i,ref} \times t_{real}}{6000}⌋$$. The purpose of using the lower integer part of a real number (denoted **⌊   ⌋**) is to provide additional conservatism when adjusting the $$n_i$$ of the reference spectrum to the same exposure time as the real flight data, as the latter is much smaller.
+
 Therefore it is possible to calculate $$R$$:
 $$
-R = \frac {\sum_i {⌊ \frac{ni, ref \times t_{real}}{6000}⌋} \; \times \; { {|LF_i - {LF_\text{average,ref}}|^{-1/b}}}}{\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{-1/b}}}
+R = \frac {\sum_i {⌊ \frac{n_{i,ref} \times t_{real}}{6000}⌋} \; \times \; { {|LF_i - {LF_\text{average,ref}}|^{-1/b}}}}{\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{-1/b}}}
 $$
 Where:
 - $$n_{i,ref}$$ and $$n_{i,real}$$ are the number of occurrences at each load factor level $$LF_i$$ in the reference and real spectra, respectively.
 
 - $$LF_{average}$$ is the mean load factor for the respective spectrum.
 
-- $$b$$  is the slope of the $$S/N$$ curve.
-
-  
+- $$b$$ is the slope of the $$S/N$$ curve.
 
 $$
-R = \frac {\sum_i {⌊ \frac{ni, ref \times t_{real}}{6000}⌋} \; \times \; { {|LF_i - {LF_\text{average,ref}}|^{-1/b}}}}{\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{-1/b}}}
-$$
-
-$$
-\boxed{t_\text{extension} = t_\text{remaining \;ref} \times ( \frac {\sum_i {⌊ \frac{ni, ref \times t_{real}}{6000}⌋} \; \times \; { {|LF_i - {LF_\text{average,ref}}|^{-1/b}}}}{\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{-1/b}}} - 1)
+\boxed{t_\text{extension} = t_\text{remaining \;ref} \times ( \frac {\sum_i {⌊ \frac{n_{i,ref} \times t_{real}}{6000}⌋} \; \times \; { {|LF_i - {LF_\text{average,ref}}|^{-1/b}}}}{\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{-1/b}}} - 1)
 }
 $$
 
+To illustrate the time extension estimation, if the measured real-flight EFI over 25 hours is 0.000035, and the reference EFI over the same duration is 0.0007 (i.e., $$R = 20$$), and the glider has 500 hours left before 12,000 hours under reference spectrum use, the extension is $$t_{\text{extension}} = 500 \times (20 - 1) = 9,500 \, \text{hours}$$.
 
+As the following paragraphs will show, despite the variability from glider to glider, due to airframe response to turbulence, type of operations, as well as pilot skills, the $$R$$ factor can reach a few hundred. To ensure significant life extension is achieved, especially when glider operations result in a lower $$R$$ value, it is recommended to start instrumentation as soon as possible. As an example, it might be wise to instrument the glider when the last 1,000-hour check is performed, before reaching the 12,000-hour limit.
 
-To illustrate the time extension estimation, if real damage over 25 hours is 0.000035, and reference damage is 0.0007  (i.e., $R = 20$), and the glider has 500 hours left before 12,000 hours under reference spectrum use, the extension is $$t_{\text{extension}} = 500 \times (20 - 1) = 9,500 \, \text{hours} $$.
-
-As the following paragraphs will show, despite the variability from glider to glider, due to airframe response to turbulence, type of operations,  as well as pilot skills, the $$R$$  factor can reach a few hundred.
-To ensure significant life extension is achieved, especially when glider operations result in a lower  $$R$$ value, it is recommended to start instrumentation as soon as possible. As an example, it might be wise to instrument the glider when the last 1,000-hour check is performed, before reaching the 12,000-hour limit.
-
-However, it should be understood that the $$R$$ ratio and time extension are highly dependent on the way the glider is being flown. Gliders being flown aggressively, performing spin entry/recovery or other maneuvers requiring a wide load factor range, will have much less favorable time extension than gliders being flown cross-country with pilots flying softly.
-In essence, regardless of the mission profile, gentler flying techniques will result in a greater potential life extension.
+However, it should be understood that the $$R$$ ratio and time extension are highly dependent on the way the glider is being flown. Gliders being flown aggressively, performing spin entry/recovery or other maneuvers requiring a wide load factor range, will have much less favorable time extension than gliders being flown cross-country with pilots flying softly. In essence, regardless of the mission profile, gentler flying techniques will result in a greater potential life extension.
 
 
 
@@ -760,7 +750,7 @@ and the aircraft remains in acceptable structural condition through the applicab
 
 Preliminary calculations performed on a Janus B glider, using approximately 35 hours of flight data in various conditions,  indicate that the real load spectrum produces significantly lower load factor occurrences than the reference model predicts. This reduction in load factor occurrences also translates into a lower cumulative EFI. The corresponding EFI ratio supports the potential for life extension.
 
-The load spectrum used as a reference is the Kossira & Reinke flight-only spectrum, which excludes simple aerobatics and ground operations. This represents the most conservative choice within the available Kossira & Reinke spectra: adding simple aerobatics and ground operations would introduce additional occurrences at higher load factors, increasing the reference damage accumulation and yielding a more favorable damage ratio. The life extension results presented here therefore constitute a conservative lower bound of the potential gain.
+The load spectrum used as a reference is the Kossira & Reinke flight-only spectrum, which excludes simple aerobatics and ground operations. This represents the most conservative choice within the available Kossira & Reinke spectra: adding simple aerobatics and ground operations would introduce additional occurrences at higher load factors, increasing the reference EFI accumulation and yielding a more favorable EFI ratio. The life extension results presented here therefore constitute a conservative lower bound of the potential gain.
 
 
 
@@ -777,7 +767,7 @@ The following is an example of  calculations performed with the conservative val
 A very preliminary analysis has been performed on several flights with different pilots on a Janus B.
 The recording performed at 20 Hz sample rate was processed using the Kossira & Reinke counting method.
 
-Using the Janus B data and the Kossira & Reinke reference spectrum, Table 2 provides the different steps to compute the damage ratio. Because of the limited data, this table should be considered more as an illustration of the method.
+Using the Janus B data and the Kossira & Reinke reference spectrum, Table 2 provides the different steps to compute the EFI ratio. Because of the limited data, this table should be considered more as an illustration of the method.
 
 
 
@@ -840,26 +830,30 @@ The concept of operation could be divided into 3 main phases:
 ###### Phase 1 — Instrumentation and Data Collection (below Type Certificate safe life limit)
 
 This phase covers the period during which the SLM recorder is installed, and the glider has not yet reached its safe life limit. It includes:
-\-    Sensor installation in accordance with CS-STAN / Form 123
-\-    Annual 6-face calibration during the annual inspection
-\-    Compliance with Part ML; installation and annual calibration results recorded in the aircraft logbook
-\-    Missing data policy: if a flight occurs without valid SLM data (sensor fault, data corruption, missed calibration), EFI for that flight is substituted at the reference Kossira & Reinke EFI rate for the flight duration
-\-    Flight data uploaded to the central web repository; post-processing tools applied to guarantee data integrity
+
+- Sensor installation in accordance with CS-STAN 104b / Form 123.
+- Sensor installation calibration with the glider in level-flight attitude and wings level, so that the recorder-corrected vertical axis is aligned with the gravity vector in the reference flight attitude.
+- Annual 6-face calibration during the annual inspection.
+- Compliance with Part ML; installation and annual calibration results recorded in the aircraft logbook.
+- Missing data policy: if a flight occurs without valid SLM data (sensor fault, data corruption, missed calibration), EFI for that flight is substituted at the reference Kossira & Reinke EFI rate for the flight duration.
+- Flight data uploaded to the central web repository; post-processing tools applied to guarantee data integrity.
 
 ###### Phase 2 — Fatigue Evaluation when reaching Type Certificate safe life limit
 
 This phase includes:
-\-    a dedicated fatigue inspection of the aircraft condition (equivalent in scope to the existing recurring 1,000-hour inspections).
-\-    an assessment of the cumulative EFI to possibly permit operation up to the originally certified fatigue reference limit.
-\-    inspection beyond the composite structure, as well as an overall assessment of the glider’s condition (incidents/repairs). 
+
+- a dedicated fatigue inspection of the aircraft condition (equivalent in scope to the existing recurring 1,000-hour inspections).
+- an assessment of the cumulative EFI to possibly permit operation up to the originally certified fatigue reference limit.
+- inspection beyond the composite structure, as well as an overall assessment of the glider’s condition (incidents/repairs). 
 
 ######  Phase 3 — Operation Beyond Type Certificate safe life limit
 
  This phase is a continuation of Phase 1 monitoring operations, with the following additional provisions:
-\-    Go / No-Go decision at each Airworthiness Review Certificate (ARC) renewal, based on the SLM equivalent fatigue index report and the associated structural inspection status
-\-    Go criterion: cumulative $$EFI_{total} < 1/3$$, using the approved reference assumptions, AND the current EFI rate confirms that $$EFI = 1/3$$ will not be reached before the next scheduled inspection
-\-    Recurring structural inspection continuing from Phase 2, with a maximum interval of 1,000 hours or 5 years, whichever is sooner
-\-    This process continues until the aircraft has exhausted its remaining EFI potential and is retired from service
+
+- Go / No-Go decision at each Airworthiness Review Certificate (ARC) renewal, based on the SLM equivalent fatigue index report and the associated structural inspection status.
+- Go criterion: cumulative $$EFI_{total} < 1/3$$, using the approved reference assumptions, AND the current EFI rate confirms that $$EFI = 1/3$$ will not be reached before the next scheduled inspection.
+- Recurring structural inspection continuing from Phase 2, with a maximum interval of 1,000 hours or 5 years, whichever is sooner.
+- This process continues until the aircraft has exhausted its remaining EFI potential and is retired from service
 
 
 
@@ -900,7 +894,7 @@ Preliminary results show that, even when applying conservative calculation metho
 
 The Basquin parameter used in the EFI calculation is not claimed to represent the exact failure mode of the structure. It is used as a conservative severity-weighting parameter applied consistently to both the reference and measured spectra. The purpose of SLM is therefore not to predict the absolute fatigue life of a composite structure from first principles, but to compare measured operational severity with the accepted certification reference severity.
 
-These findings are consistent with life assessments performed on similar composite structures in other industries, and with the life assessment performed by TRAFI for the PIK-20D in 2015.
+SLM life extension opportunities are consistent with life assessments performed on similar composite structures in other industries, and with the life assessment performed by TRAFI for the PIK-20D in 2015.
 
 The proposed method is conservative by design, compatible with EASA fatigue strength regulation requirements, and provides economic and environmental benefits while maintaining the same safety level as the original Type Certificate (same certified reference limit as the original TC). A structured three-phase Concept of Operation — covering instrumentation, fatigue evaluation at the certified life limit, and monitored operation beyond it — has been outlined as a practical deployment framework. It is advisable to first validate this approach on a selected fleet of instrumented gliders. The findings could then support the establishment of an EASA Certification Review Item, leading to an Acceptable Means of Compliance for SLM under CS-22, and ultimately deployed on aging gliders through Supplemental Type Certificates or manufacturer Service Bulletins.
 
