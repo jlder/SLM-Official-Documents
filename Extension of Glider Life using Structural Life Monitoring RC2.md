@@ -21,7 +21,7 @@ The lifespan of a glider is limited by its susceptibility to fatigue damage. Rep
 
 This paper presents a Structural Life Monitoring (SLM) method to justify extended fatigue life, without revisiting certified structural limits or reopening Type Certificate documents. The method compares the EASA-recognized Kossira & Reinke reference load spectrum against the actual load spectrum measured during real flights, using the same Kossira & Reinke counting method for both, ensuring a consistent and legitimate comparison. An Equivalent Fatigue Index (EFI) is calculated using the Palmgren-Miner rule and conservative fatigue parameters. As long as the cumulative EFI remains below the certification reference limit, and the required inspection and continued-airworthiness provisions are satisfied, continued operation may be justified. The ratio between the reference EFI rate and the measured EFI rate quantifies the potential life extension.
 
-Preliminary results on an instrumented glider show a ratio of around 26, corresponding to potential life extensions of several thousand hours for typical training and cross-country operations. This is consistent with life assessments performed on certain gliders and similar composite structures in other industries. The method is conservative by design, maintains certified damage limits, and is compatible with EASA fatigue strength regulation requirements. A structured Concept of Operation and a certification pathway via EASA STC are proposed to support deployment.
+Preliminary results on an instrumented glider show a ratio of around 26, corresponding to potential life extensions of several thousand hours for typical training and cross-country operations. This is consistent with life assessments performed on certain gliders and similar composite structures in other industries. The method is conservative by design, maintains the certified reference fatigue limit, and is compatible with EASA fatigue strength regulation requirements. A structured Concept of Operation and a certification pathway via EASA STC are proposed to support deployment.
 
 
 
@@ -53,7 +53,7 @@ Before getting into the methodology discussion, it is important to understand so
 
 **Fatigue and Equivalent Fatigue Index (EFI):** Aircraft structures are subject to variable loads throughout their service life, and repeated stress cycles can cause progressive structural deterioration — a phenomenon known as fatigue. Structural design aims to minimize stress concentrations, but fatigue accumulation must still be evaluated to ensure long-term structural integrity. One of the methods used in aerospace and accepted by EASA is the Palmgren-Miner rule, which combines load factor occurrences with the material's fatigue resistance. In the present SLM method, the cumulative Palmgren-Miner quantity is referred to as the **Equivalent Fatigue Index**, noted $$EFI$$. EFI is a conservative usage-severity index calculated consistently for both the certification reference spectrum and the measured operational spectrum.
 
-**S/N Curves (Wöhler Curves):** Material fatigue resistance is characterized by the relationship between the stress amplitude applied to a specimen and the number of cycles it can sustain before failure. This relationship is represented graphically as an S/N curve, also known as a Wöhler curve, where S denotes the stress amplitude and N the corresponding number of cycles to failure. S/N curves are derived from laboratory testing. In the context of the Palmgren-Miner rule, the S/N curve is the link between the load spectrum and damage estimation: for each stress level in the Reference Load Spectrum, the corresponding number of cycles to failure is read from the S/N curve, allowing the contribution of each load cycle to the total accumulated damage to be quantified. Due to design and operational limits, gliders only suffer from high cycle fatigue.
+**S/N Curves (Wöhler Curves):** Material fatigue resistance is characterized by the relationship between the stress amplitude applied to a specimen and the number of cycles it can sustain before failure. This relationship is represented graphically as an S/N curve, also known as a Wöhler curve, where S denotes the stress amplitude and N the corresponding number of cycles to failure. S/N curves are derived from laboratory testing. In the context of the Palmgren-Miner rule, the S/N curve is the link between the load spectrum and EFI calculation: for each stress level in the Reference Load Spectrum, the corresponding number of cycles to failure is read from the S/N curve, allowing the contribution of each load cycle to the cumulative EFI to be quantified. Due to design and operational limits, gliders only suffer from high cycle fatigue.
 
 **Safety Factor:** Because uncertainties are inherent in the way structural fatigue and its associated limits are calculated, it is standard aerospace practice to apply an overall Safety Factor, even when margins are already included in individual calculations. The Safety Factor is applied to the Service Life Limit that is targeted. This means that fatigue calculations must be performed against a target equal to the intended Service Life Limit multiplied by the Safety Factor. Aerospace typically uses a Safety Factor of 3. For example, a glider with a Service Life Limit of 12,000 flight hours must demonstrate structural integrity up to 36,000 hours of equivalent fatigue.
 
@@ -716,12 +716,12 @@ $$
 where \;\;C' \;=\;3\;\sum_i n_{i,ref}\,\bigl|\mathrm{LF}_{i,ref}-{LF_{average,ref}}\bigr|^{6.25}
 $$
 
-As long as $$EFI_{real}$$ stays below  $$\frac{1}{3}$$, the glider can continue operations.
+As long as $$EFI_{real}$$ stays below  (and the required inspections and continued-airworthiness conditions are satisfied), the glider can continue operations.
 
 The equation for the life extension becomes:
 
 $$
-\boxed{t_\text{extension} = t_\text{remaining ref} \times ( \frac {\sum_i {⌊ \frac{ni, ref \times t_{real}}{6000}⌋} \; \times \; { {|LF_i - {LF_\text{average,ref}}|^{6.25}}}}{\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{6.25}}} - 1)}
+\boxed{t_\text{extension} = t_\text{remaining ref} \times ( \frac {\sum_i {⌊ \frac{n_i, ref \times t_{real}}{6000}⌋} \; \times \; { {|LF_i - {LF_\text{average,ref}}|^{6.25}}}}{\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{6.25}}} - 1)}
 $$
 
 From a fatigue standpoint, this is a conservative approach because the selected exponent is slightly steeper than the steep end of reviewed GFRP epoxy laminate fatigue data and strongly penalizes the EFI calculation relative to CFRP-dominated epoxy structures.
@@ -758,7 +758,7 @@ The load spectrum used as a reference is the Kossira & Reinke flight-only spectr
 
 The simplified ratio:
 $$
-R = \frac {\sum_i {⌊ \frac{ni, ref \times t_{real}}{6000}⌋} \;\times\;{ {|LF_i - {LF_\text{average,ref}}|^{6.25}}}}{\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{6.25}}}
+R = \frac {\sum_i {⌊ \frac{n_i, ref \times t_{real}}{6000}⌋} \;\times\;{ {|LF_i - {LF_\text{average,ref}}|^{6.25}}}}{\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{6.25}}}
 $$
 provides a direct method to evaluate the difference in EFI accumulation. Since real flight loads are less severe than those predicted by the Kossira & Reinke distribution, $R$ is expected to be significantly greater than one, thereby justifying an extension in the glider’s operational life.
 
@@ -783,7 +783,7 @@ The EFI ratio is simply the ratio of the $$Kossira \; occ * |n - avg|^K$$  colum
 
 where 
 
-$$Kossira \; occ * |n - avg|^K$$ corresponds to   $${\sum_i {⌊ \frac{ni, ref\times t_{real}}{6000}⌋} \;\times\;{ {|LF_i - {LF_\text{average,ref}}|^{6.25}}}}$$
+$$Kossira \; occ * |n - avg|^K$$ corresponds to   $${\sum_i {⌊ \frac{n_i, ref\times t_{real}}{6000}⌋} \;\times\;{ {|LF_i - {LF_\text{average,ref}}|^{6.25}}}}$$
 
 $$ JANUS \; occ * |n - avg|^K$$   corresponds to   $$\sum_i {n_i,real}  \;\times\;{|LF_i - {LF_\text{average,real}}|^{6.25}}$$
 
@@ -800,6 +800,7 @@ This illustrates that the proposed method will justify life extension according 
 The proposed SLM method is based on the following assumptions and limitations:
 
 - SLM does not reopen the Type Certificate structural substantiation.
+- SLM does not determine the absolute physical damage state or absolute fatigue life of the composite structure; the method is based on a global reference-spectrum comparison rather than a local failure-mode prediction.
 - SLM uses the approved certification life exposure as the conservative reference limit.
 - SLM compares measured operational severity against this accepted reference severity.
 - The Palmgren-Miner calculation is used as a common comparison framework for both spectra.
@@ -807,7 +808,7 @@ The proposed SLM method is based on the following assumptions and limitations:
 - The method remains dependent on continued inspections, especially for defects, repairs, bonds, metallic fittings, and unforeseen local deterioration.
 - Missing or invalid flight data must be replaced by conservative reference-spectrum usage.
 
-This study focuses on composite glider parts, hence the conservative GFRP/CFRP epoxy $$6.25$$ Basquin parameter. It is however interesting to note that, if a more conservative Basquin parameter, typical of aluminum alloys : $$-\frac{1}{b} = 5$$  is used, we still obtain a very significant ratio of 12. This could be used to estimate the metallic parts life extension which would be around 3,600 hours (12 x 300 ), based on the Janus data. This is significantly more than the repetitive 1,000-hour inspections, currently required after 9,000 hours. This legitimizes the continuation of these recurring inspections at 13,000 hours, 14,000 hours and beyond.
+This study focuses on composite glider parts, hence the conservative GFRP/CFRP epoxy $$6.25$$ Basquin parameter. It is however interesting to note that, if an aluminum-typical Basquin parameter, $-1/b = 5$, is used, it results in a significant life-extension ratio of 12. This could be used to estimate the metallic parts life extension which would be around 3,600 hours (12 x 300 ), based on the Janus data. This is significantly more than the repetitive 1,000-hour inspections, currently required after 9,000 hours. This legitimizes the continuation of these recurring inspections at 13,000 hours, 14,000 hours and beyond.
 It should also be noted that, contrary to the composite structures, these metallic parts (wing shear pins and bushings, spar pins and bushings, tail fittings, etc.) can generally be inspected and eventually replaced during the repetitive inspections, reducing further the risk of failure. 
 
 
