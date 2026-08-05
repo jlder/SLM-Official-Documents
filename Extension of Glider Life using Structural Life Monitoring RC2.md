@@ -832,7 +832,7 @@ The concept of operation could be divided into 3 main phases:
 
 This phase covers the period during which the SLM recorder is installed, and the glider has not yet reached its safe life limit. It includes:
 
-- Sensor installation in accordance with CS-STAN 104b / Form 123.
+- Sensor installation in accordance with CS-STAN 420c / Form 123.
 - Sensor installation calibration with the glider in level-flight attitude and wings level, so that the recorder-corrected vertical axis is aligned with the gravity vector in the reference flight attitude.
 - Annual 6-face calibration during the annual inspection.
 - Compliance with Part ML; installation and annual calibration results recorded in the aircraft logbook.
